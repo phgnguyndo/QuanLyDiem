@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "S+yBFtxp3KR98nez5dRgIqJc6LCLFu+KcYX8VDhOumM=",
+  "Source": "BE_QuanLiDiem",
+  "BasePath": "_content/BE_QuanLiDiem",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BE_QuanLiDiem\\wwwroot",
+      "Source": "BE_QuanLiDiem",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "Images/imager_6_6789_700.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\imager_6_6789_700.jpg"
+    }
+  ]
+}
