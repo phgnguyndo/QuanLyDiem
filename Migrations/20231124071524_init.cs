@@ -16,7 +16,10 @@ namespace BE_QuanLiDiem.Migrations
                 columns: table => new
                 {
                     MaDaiDoi = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TenDaiDoi = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    AnhDaiDoi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TenDaiDoi = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DaiDoiTruong = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    QuanSo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -36,11 +39,46 @@ namespace BE_QuanLiDiem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "tbl_RefreshToken",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", unicode: false, nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    TokenId = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    RefreshToken = table.Column<string>(type: "varchar(1000)", unicode: false, maxLength: 1000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_RefreshToken", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "tbl_user",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", unicode: false, nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Code = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    Phone = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    Password = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", unicode: false, maxLength: 50, nullable: true),
+                    Role = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_tbl_user", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LopChuyenNganhs",
                 columns: table => new
                 {
                     MaLopChuyenNganh = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DaiDoiId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AnhLCN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TenLopChuyenNganh = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoHV = table.Column<int>(type: "int", nullable: false)
                 },
@@ -271,6 +309,12 @@ namespace BE_QuanLiDiem.Migrations
 
             migrationBuilder.DropTable(
                 name: "PhieuDiems");
+
+            migrationBuilder.DropTable(
+                name: "tbl_RefreshToken");
+
+            migrationBuilder.DropTable(
+                name: "tbl_user");
 
             migrationBuilder.DropTable(
                 name: "GiangViens");

@@ -24,6 +24,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\ImageDaiDoi\" />
+    <Folder Include="wwwroot\ImageLCN\" />
   </ItemGroup>
 
 </Project>

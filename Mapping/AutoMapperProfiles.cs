@@ -10,6 +10,7 @@ using BE_QuanLiDiem.Models.DTO.Khoa;
 using BE_QuanLiDiem.Models.DTO.LCN;
 using BE_QuanLiDiem.Models.DTO.LopHocPhan;
 using BE_QuanLiDiem.Models.DTO.PhieuDiem;
+using BE_QuanLiDiem.Models.DTO.User;
 
 namespace BE_QuanLiDiem.Mapping
 {
@@ -53,6 +54,10 @@ namespace BE_QuanLiDiem.Mapping
 
             CreateMap<DaiDoi, DaiDoiDTO>().ReverseMap();
             CreateMap<DaiDoi, AUdaiDoiDTO>().ReverseMap();
+            
+            CreateMap<tbl_user, tblUserDTO>().ReverseMap();
+
+
 
 
         }

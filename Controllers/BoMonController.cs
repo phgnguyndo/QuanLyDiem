@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
+using BE_QuanLiDiem.Constans;
 using BE_QuanLiDiem.Data;
 using BE_QuanLiDiem.Models.DTO.BoMon;
 using BE_QuanLiDiem.Repository.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BE_QuanLiDiem.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class BoMonController : ControllerBase
@@ -18,7 +21,8 @@ namespace BE_QuanLiDiem.Controllers
             this.boMonRP = boMonRP;
             this.mapper = mapper;
         }
-
+        //[AllowAnonymous]
+        [Authorize(Roles =UserRole.ADMIN)]
         [HttpGet]
         public async Task<IActionResult> GetAllBoMon()
         {

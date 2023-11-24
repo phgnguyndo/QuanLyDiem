@@ -21,7 +21,7 @@ namespace BE_QuanLiDiem.Repository.Implement
                 TenBM = addBoMonDTO.TenBM,
                 KhoaId = addBoMonDTO.KhoaId
             };
-            dbContext.Add(newBM);
+            dbContext.BoMons.Add(newBM);
             await dbContext.SaveChangesAsync();
             return newBM;
         }

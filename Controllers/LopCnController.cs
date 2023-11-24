@@ -23,20 +23,29 @@ namespace BE_QuanLiDiem.Controllers
         public async Task<IActionResult> GetAllLCN()
         {
             var LCNs=await lopCnRP.GetAllLcnAsync();
-            return Ok(mapper.Map<LopCnDTO>(LCNs));
+            return Ok(mapper.Map<List<LopCnDTO>>(LCNs));
         }
 
+        //[HttpGet]
+        //[Route("{MaLCN:Guid}")]
+        //public async Task<IActionResult> GetLCNById([FromRoute] Guid MaLCN)
+        //{
+        //    var lcn= await lopCnRP.GetLcnByIdAsync(MaLCN);
+        //    if(lcn==null) return NotFound();
+        //    return Ok(mapper.Map<LopCnDTO>(lcn));
+        //}
+        
         [HttpGet]
-        [Route("{MaLCN:Guid}")]
-        public async Task<IActionResult> GetLCNById([FromRoute] Guid MaLCN)
+        [Route("{MaDaiDoi:Guid}")]
+        public async Task<IActionResult> GetLCNByIdDD([FromRoute] Guid MaDaiDoi)
         {
-            var lcn= await lopCnRP.GetLcnByIdAsync(MaLCN);
+            var lcn= await lopCnRP.GetLcnByIdDaiDoiAsync(MaDaiDoi);
             if(lcn==null) return NotFound();
-            return Ok(mapper.Map<LopCnDTO>(lcn));
+            return Ok(mapper.Map<List<LopCnDTO>>(lcn));
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateLCN(AddLopCnDTO addLopCnDTO)
+        public async Task<IActionResult> CreateLCN([FromForm] AddLopCnDTO addLopCnDTO)
         {
             var newLCN= await lopCnRP.CreateLcnAsync(addLopCnDTO);
             return Ok(newLCN);
@@ -44,7 +53,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaLCN:Guid}")]
-        public async Task<IActionResult> UpdateLCN(UpdateLopCnDTO updateLopCnDTO, [FromRoute] Guid MaLCN)
+        public async Task<IActionResult> UpdateLCN([FromForm] UpdateLopCnDTO updateLopCnDTO, [FromRoute] Guid MaLCN)
         {
             var exist = await lopCnRP.UpdateLcnAsync(updateLopCnDTO, MaLCN);
             if(exist==null) return NotFound();

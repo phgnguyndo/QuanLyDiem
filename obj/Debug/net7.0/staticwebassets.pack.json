@@ -1,7 +1,19 @@
 {
   "Files": [
     {
-      "Id": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\cb7a6157a32b75752c3a.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\cb7a6157a32b75752c3a.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\download.png",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\download.png"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\download.png",
+      "PackagePath": "staticwebassets\\Images\\download.png"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",
       "PackagePath": "staticwebassets\\Images\\imager_6_6789_700.jpg"
     },
     {

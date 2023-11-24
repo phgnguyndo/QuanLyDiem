@@ -1,8 +1,10 @@
 ﻿using BE_QuanLiDiem.Data;
 using BE_QuanLiDiem.Models.Domain;
+using BE_QuanLiDiem.Models.DTO.HocVien;
 using BE_QuanLiDiem.Models.DTO.LCN;
 using BE_QuanLiDiem.Repository.Abstract;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace BE_QuanLiDiem.Repository.Implement
 {
@@ -22,6 +24,16 @@ namespace BE_QuanLiDiem.Repository.Implement
                 TenLopChuyenNganh = addLopCnDTO.TenLopChuyenNganh,
                 SoHV = addLopCnDTO.SoHV
             };
+            if (addLopCnDTO.file != null)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/ImageLCN", addLopCnDTO.file.FileName);
+                using (FileStream ms = new FileStream(filePath, FileMode.Create))
+                {
+                    await addLopCnDTO.file.CopyToAsync(ms);
+                }
+                var pathImage = Path.Combine("ImageLCN", addLopCnDTO.file.FileName);
+                newLCN.AnhLCN = pathImage;
+            }
             dbContext.LopChuyenNganhs.Add(newLCN);
             await dbContext.SaveChangesAsync();
             return newLCN;
@@ -48,6 +60,13 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
+        public async Task<List<LopChuyenNganh>> GetLcnByIdDaiDoiAsync(Guid MaDaiDoi)
+        {
+            var listLCN = await dbContext.LopChuyenNganhs.Where(x=>x.DaiDoiId==MaDaiDoi).ToListAsync();
+            if (listLCN == null) return null;
+            return listLCN;
+        }
+
         public async Task<LopChuyenNganh> UpdateLcnAsync(UpdateLopCnDTO updateLopCnDTO, Guid MaLCN)
         {
             var exist = await dbContext.LopChuyenNganhs.FirstOrDefaultAsync(x => x.MaLopChuyenNganh == MaLCN);
@@ -55,6 +74,17 @@ namespace BE_QuanLiDiem.Repository.Implement
             exist.DaiDoiId=updateLopCnDTO.DaiDoiId;
             exist.TenLopChuyenNganh = updateLopCnDTO.TenLopChuyenNganh;
             exist.SoHV=updateLopCnDTO.SoHV;
+
+            if (updateLopCnDTO.file != null)
+            {
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot/Images", updateLopCnDTO.file.FileName);
+                using (FileStream ms = new FileStream(filePath, FileMode.Create))
+                {
+                    await updateLopCnDTO.file.CopyToAsync(ms);
+                }
+                var pathImage = Path.Combine("Images", updateLopCnDTO.file.FileName);
+                exist.AnhLCN = pathImage;
+            }
             await dbContext.SaveChangesAsync();
             return exist;
         }

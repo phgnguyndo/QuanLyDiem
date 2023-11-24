@@ -8,6 +8,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     {
         Task<List<LopChuyenNganh>> GetAllLcnAsync();
         Task<LopChuyenNganh> GetLcnByIdAsync(Guid MaLCN);
+        Task<List<LopChuyenNganh>> GetLcnByIdDaiDoiAsync(Guid MaDaiDoi);
         Task<LopChuyenNganh> CreateLcnAsync(AddLopCnDTO addLopCnDTO);
         Task<LopChuyenNganh> UpdateLcnAsync(UpdateLopCnDTO updateLopCnDTO, Guid MaLCN);
         Task<LopChuyenNganh> DeleteLcnAsync(Guid MaLCN);

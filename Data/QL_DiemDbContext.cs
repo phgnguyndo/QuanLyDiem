@@ -16,6 +16,8 @@ namespace BE_QuanLiDiem.Data
         public DbSet<LopChuyenNganh> LopChuyenNganhs { get; set; }
         public DbSet<DaiDoi> DaiDois { get; set; }
         public DbSet<HocPhan> HocPhans { get; set; }
+        public DbSet<tbl_RefreshToken> tbl_RefreshToken { get; set; }
+        public DbSet<tbl_user> tbl_user { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

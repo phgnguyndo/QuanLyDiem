@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "laEJcM4K28troia9MDDPGeZkyDVT7SW075FEJ4CLQHp2/GflQoL6J6oi7BpLVv1JezPOWfxjuW1VLa3opndwqw==",
+  "dgSpecHash": "HZF4jOfPCqJ83XR01TCEN53VUDMn2VsyyAv1W7vUyxUksvDg8E3pWXsVoSDkpZ0jGhT1VSucnDzpcSiXddBx2w==",
   "success": true,
-  "projectFilePath": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
+  "projectFilePath": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BE_QuanLiDiem.Migrations
 {
     [DbContext(typeof(QL_DiemDbContext))]
-    [Migration("20231027020822_init")]
+    [Migration("20231124071524_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -50,6 +50,17 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<Guid>("MaDaiDoi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AnhDaiDoi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DaiDoiTruong")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("QuanSo")
+                        .HasColumnType("int");
 
                     b.Property<string>("TenDaiDoi")
                         .IsRequired()
@@ -192,6 +203,10 @@ namespace BE_QuanLiDiem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("AnhLCN")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("DaiDoiId")
                         .HasColumnType("uniqueidentifier");
 
@@ -263,6 +278,98 @@ namespace BE_QuanLiDiem.Migrations
                     b.HasIndex("LopHocPhanId");
 
                     b.ToTable("PhieuDiems");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.tbl_RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .IsUnicode(false)
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RefreshToken")
+                        .HasMaxLength(1000)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(1000)")
+                        .HasColumnName("RefreshToken");
+
+                    b.Property<string>("TokenId")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("TokenId");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_RefreshToken");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.tbl_user", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .IsUnicode(false)
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Code");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Email");
+
+                    b.Property<bool?>("IsActive")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("bit")
+                        .HasColumnName("IsActive");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Name");
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Password");
+
+                    b.Property<string>("Phone")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Phone");
+
+                    b.Property<string>("Role")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("Role");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_user");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.BoMon", b =>

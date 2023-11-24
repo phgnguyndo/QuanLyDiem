@@ -19,12 +19,12 @@ namespace BE_QuanLiDiem.Controllers
             this.daiDoiRP = daiDoiRP;
             this.mapper = mapper;
         }
-
+        
         [HttpGet]
         public async Task<IActionResult> GetAllDaiDoi()
         {
             var DaiDois=await daiDoiRP.GetAllDaiDoiAsync();
-            return Ok(mapper.Map<DaiDoiDTO>(DaiDois));
+            return Ok(mapper.Map<List<DaiDoiDTO>>(DaiDois));
         }
 
         [HttpGet]
@@ -37,7 +37,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateDaiDoi(AUdaiDoiDTO aUdaiDoiDTO)
+        public async Task<IActionResult> CreateDaiDoi([FromForm] AUdaiDoiDTO aUdaiDoiDTO)
         {
             var newDD=await daiDoiRP.CreateDaiDoiAsync(aUdaiDoiDTO);
             return Ok(newDD);
@@ -45,7 +45,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaDaiDoi:Guid}")]
-        public async Task<IActionResult> UpdateDaiDoi(AUdaiDoiDTO aUdaiDoiDTO,[FromRoute] Guid MaDaiDoi)
+        public async Task<IActionResult> UpdateDaiDoi([FromForm] AUdaiDoiDTO aUdaiDoiDTO,[FromRoute] Guid MaDaiDoi)
         {
             var exist = await daiDoiRP.UpdateDaiDoiAsync(aUdaiDoiDTO, MaDaiDoi);
             if(exist==null) return NotFound();

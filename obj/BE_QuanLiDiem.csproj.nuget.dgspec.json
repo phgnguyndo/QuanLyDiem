@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj": {}
+    "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj": {}
   },
   "projects": {
-    "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj": {
+    "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
+        "projectUniqueName": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
         "projectName": "BE_QuanLiDiem",
-        "projectPath": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
+        "projectPath": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\BE_QuanLiDiem.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "D:\\clonePr\\BE_QuanLiDiem\\BE_QuanLiDiem\\obj\\",
+        "outputPath": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
