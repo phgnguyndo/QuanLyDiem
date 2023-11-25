@@ -1,12 +1,48 @@
 {
   "Files": [
     {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\PQ.png",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\PQ.png"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\anh-luffy-yody-vn-9.webp",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\anh-luffy-yody-vn-9.webp"
+    },
+    {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\cb7a6157a32b75752c3a.jpg",
       "PackagePath": "staticwebassets\\ImageDaiDoi\\cb7a6157a32b75752c3a.jpg"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\download.png",
       "PackagePath": "staticwebassets\\ImageDaiDoi\\download.png"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\hinh-nen-game-full-hd-dep-7.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\hinh-nen-game-full-hd-dep-7.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\hinh-nen-may-tinh-kiem-si-ngau-ba-dao-full-hd.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\hinh-nen-may-tinh-kiem-si-ngau-ba-dao-full-hd.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\imager_6_6789_700.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\imager_6_6789_700.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\272280053_914662209197563_5493043630659401290_n.jpg",
+      "PackagePath": "staticwebassets\\ImageLCN\\272280053_914662209197563_5493043630659401290_n.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\anh-luffy-yody-vn-9.webp",
+      "PackagePath": "staticwebassets\\ImageLCN\\anh-luffy-yody-vn-9.webp"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\314932481_1977141262478866_2110097209587603375_n.jpg",
+      "PackagePath": "staticwebassets\\Images\\314932481_1977141262478866_2110097209587603375_n.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\Planet9_Wallpaper_5000x2813.jpg",
+      "PackagePath": "staticwebassets\\Images\\Planet9_Wallpaper_5000x2813.jpg"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\download.png",

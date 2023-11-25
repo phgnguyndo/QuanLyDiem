@@ -34,6 +34,15 @@ namespace BE_QuanLiDiem.Controllers
             if(hv==null) return NotFound();
             return Ok(mapper.Map<HocVienDTO>(hv));
         }
+        
+        [HttpGet]
+        [Route("{MaLCN:Guid}")]
+        public async Task<IActionResult> GetHocVienByIdLop([FromRoute] Guid MaLCN)
+        {
+            var hv=await hocVienRP.GetHocVienByIdLopAsync(MaLCN);
+            if(hv==null) return NotFound();
+            return Ok(mapper.Map<List<HocVienDTO>>(hv));
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateHocVien([FromForm] AddHocVienDTO addHocVienDTO)

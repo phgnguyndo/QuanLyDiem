@@ -7,6 +7,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     public interface IHocVienRP
     {
         Task<List<HocVien>> GetAllHocVienAsync();
+        Task<List<HocVien>> GetHocVienByIdLopAsync(Guid MaLop);
         Task<HocVien> GetHocVienByIdAsync(string MaHV);
         Task<HocVien> CreateHocVienAsync(AddHocVienDTO addHocVienDTO);
         Task<HocVien> UpdateHocVienAsync(UpdateHocVienDTO updateHocVienDTO, string MaHV);

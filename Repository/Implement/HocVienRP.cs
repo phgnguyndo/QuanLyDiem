@@ -62,6 +62,13 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
+        public async Task<List<HocVien>> GetHocVienByIdLopAsync(Guid MaLop)
+        {
+            var dsHV=await dbContext.HocViens.Where(x=>x.LopChuyenNganhId == MaLop).ToListAsync();
+            if (dsHV == null) { return null; }
+            return dsHV;
+        }
+
         public async Task<HocVien> UpdateHocVienAsync(UpdateHocVienDTO updateHocVienDTO, string MaHV)
         {
             var exist = await dbContext.HocViens.FirstOrDefaultAsync(x => x.MaHV == MaHV);

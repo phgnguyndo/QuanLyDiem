@@ -49,7 +49,6 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AnhDaiDoi")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DaiDoiTruong")
@@ -161,8 +160,9 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<Guid>("LopChuyenNganhId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("NgaySinh")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("NgaySinh")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("QueQuan")
                         .IsRequired()
