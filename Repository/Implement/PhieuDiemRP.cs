@@ -18,7 +18,7 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var newPhieuDiem = new PhieuDiem
             {
-                LopHocPhanId=addPhieuDiemDTO.LopHocPhanId,
+                HocPhanId=addPhieuDiemDTO.HocPhanId,
                 HocVienId=addPhieuDiemDTO.HocVienId,
                 DiemCC=addPhieuDiemDTO.DiemCC,
                 DiemTX=addPhieuDiemDTO.DiemTX,
@@ -46,7 +46,7 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<List<PhieuDiem>> GetAllPhieuDiemAsync()
         {
-            return await dbContext.PhieuDiems.ToListAsync();
+            return await dbContext.PhieuDiems.Include("HocPhan").ToListAsync();
         }
 
         public async Task<PhieuDiem> GetPhieuDiemByIdAsync(Guid MaPhieuDiem)
@@ -56,11 +56,18 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
+        public async Task<List<PhieuDiem>> GetPhieuDiemByIdHVAsync(string MaHV)
+        {
+            var exist = await dbContext.PhieuDiems.Where(x => x.HocVienId == MaHV).Include("HocPhan").ToListAsync();
+            if (exist == null) return null;
+            return exist;
+        }
+
         public async Task<PhieuDiem> UpdatePhieuDiemAsync(UpdatePhieuDiemDTO updatePhieuDiemDTO, Guid MaPhieuDiem)
         {
             var exist = await dbContext.PhieuDiems.FirstOrDefaultAsync(x => x.MaPhieuDiem == MaPhieuDiem);
             if (exist == null) return null;
-            exist.LopHocPhanId=updatePhieuDiemDTO.LopHocPhanId;
+            exist.HocPhanId =updatePhieuDiemDTO.HocPhanId;
             exist.HocVienId = updatePhieuDiemDTO.HocVienId;
             exist.DiemCC = updatePhieuDiemDTO.DiemCC;
             exist.DiemTX = updatePhieuDiemDTO.DiemTX;

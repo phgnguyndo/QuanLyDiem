@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
 using BE_QuanLiDiem.Models.Domain;
 using BE_QuanLiDiem.Models.DTO.BoMon;
+using BE_QuanLiDiem.Models.DTO.ChuongTrinh;
 using BE_QuanLiDiem.Models.DTO.DaiDoi;
 using BE_QuanLiDiem.Models.DTO.DayHoc;
 using BE_QuanLiDiem.Models.DTO.GiangVIen;
 using BE_QuanLiDiem.Models.DTO.HocPhan;
+using BE_QuanLiDiem.Models.DTO.HocTap;
 using BE_QuanLiDiem.Models.DTO.HocVien;
 using BE_QuanLiDiem.Models.DTO.Khoa;
 using BE_QuanLiDiem.Models.DTO.LCN;
@@ -56,6 +58,14 @@ namespace BE_QuanLiDiem.Mapping
             CreateMap<DaiDoi, AUdaiDoiDTO>().ReverseMap();
             
             CreateMap<tbl_user, tblUserDTO>().ReverseMap();
+
+            CreateMap<ChuongTrinh, ChuongTrinhDTO>().ReverseMap();
+            CreateMap<ChuongTrinh, AUChuongTrinhDTO>().ReverseMap();
+
+            CreateMap<HocTap, HocTapDTO>().ReverseMap();
+            CreateMap<ChuongTrinh, AUHocTapDTO>().ReverseMap();
+
+
 
 
 

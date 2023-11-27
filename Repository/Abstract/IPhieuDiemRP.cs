@@ -7,6 +7,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     public interface IPhieuDiemRP
     {
         Task<List<PhieuDiem>> GetAllPhieuDiemAsync();
+        Task<List<PhieuDiem>> GetPhieuDiemByIdHVAsync(string MaHV);
         Task<PhieuDiem> GetPhieuDiemByIdAsync(Guid MaPhieuDiem);
         Task<PhieuDiem> CreatePhieuDiemAsync(AddPhieuDiemDTO addPhieuDiemDTO);
         Task<PhieuDiem> UpdatePhieuDiemAsync(UpdatePhieuDiemDTO updatePhieuDiemDTO, Guid MaPhieuDeim);

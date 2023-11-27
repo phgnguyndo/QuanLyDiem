@@ -42,6 +42,27 @@ namespace BE_QuanLiDiem.Migrations
                     b.ToTable("BoMons");
                 });
 
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.ChuongTrinh", b =>
+                {
+                    b.Property<Guid>("MaChuongTrinh")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("HocPhanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("LopChuyenNganhId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("MaChuongTrinh");
+
+                    b.HasIndex("HocPhanId");
+
+                    b.HasIndex("LopChuyenNganhId");
+
+                    b.ToTable("ChuongTrinhs");
+                });
+
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DaiDoi", b =>
                 {
                     b.Property<Guid>("MaDaiDoi")
@@ -139,6 +160,32 @@ namespace BE_QuanLiDiem.Migrations
                     b.HasIndex("BoMonId");
 
                     b.ToTable("HocPhans");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.HocTap", b =>
+                {
+                    b.Property<Guid>("MaHocTap")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("HocVienMaHV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("LopHocPhanId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("hvId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MaHocTap");
+
+                    b.HasIndex("HocVienMaHV");
+
+                    b.HasIndex("LopHocPhanId");
+
+                    b.ToTable("HocTaps");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.HocVien", b =>
@@ -258,6 +305,9 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<float>("DiemThiLai")
                         .HasColumnType("real");
 
+                    b.Property<Guid>("HocPhanId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("HocVienId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -265,14 +315,11 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<int>("LanThi")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("LopHocPhanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("MaPhieuDiem");
 
-                    b.HasIndex("HocVienId");
+                    b.HasIndex("HocPhanId");
 
-                    b.HasIndex("LopHocPhanId");
+                    b.HasIndex("HocVienId");
 
                     b.ToTable("PhieuDiems");
                 });
@@ -380,6 +427,25 @@ namespace BE_QuanLiDiem.Migrations
                     b.Navigation("Khoa");
                 });
 
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.ChuongTrinh", b =>
+                {
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocPhan", "HocPhan")
+                        .WithMany()
+                        .HasForeignKey("HocPhanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.LopChuyenNganh", "LopChuyenNganh")
+                        .WithMany()
+                        .HasForeignKey("LopChuyenNganhId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HocPhan");
+
+                    b.Navigation("LopChuyenNganh");
+                });
+
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DayHoc", b =>
                 {
                     b.HasOne("BE_QuanLiDiem.Models.Domain.GiangVien", "GiangVien")
@@ -419,6 +485,25 @@ namespace BE_QuanLiDiem.Migrations
                     b.Navigation("BoMon");
                 });
 
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.HocTap", b =>
+                {
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocVien", "HocVien")
+                        .WithMany()
+                        .HasForeignKey("HocVienMaHV")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.LopHocPhan", "LopHocPhan")
+                        .WithMany()
+                        .HasForeignKey("LopHocPhanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HocVien");
+
+                    b.Navigation("LopHocPhan");
+                });
+
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.HocVien", b =>
                 {
                     b.HasOne("BE_QuanLiDiem.Models.Domain.LopChuyenNganh", "LopChuyenNganh")
@@ -454,21 +539,21 @@ namespace BE_QuanLiDiem.Migrations
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.PhieuDiem", b =>
                 {
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocPhan", "HocPhan")
+                        .WithMany()
+                        .HasForeignKey("HocPhanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BE_QuanLiDiem.Models.Domain.HocVien", "HocVien")
                         .WithMany()
                         .HasForeignKey("HocVienId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BE_QuanLiDiem.Models.Domain.LopHocPhan", "LopHocPhan")
-                        .WithMany()
-                        .HasForeignKey("LopHocPhanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("HocPhan");
 
                     b.Navigation("HocVien");
-
-                    b.Navigation("LopHocPhan");
                 });
 #pragma warning restore 612, 618
         }

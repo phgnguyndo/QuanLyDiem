@@ -34,6 +34,15 @@ namespace BE_QuanLiDiem.Controllers
             if(phieuDiem == null)   return NotFound();
             return Ok(mapper.Map<PhieuDiemDTO> (phieuDiem));
         }
+        
+        [HttpGet]
+        [Route("{MaHV}")]
+        public async Task<IActionResult> GetPhieuDiemById([FromRoute] string MaHV)
+        {
+            var phieuDiem=await phieuDiemRP.GetPhieuDiemByIdHVAsync(MaHV);
+            if(phieuDiem == null)   return NotFound();
+            return Ok(mapper.Map<List<PhieuDiemDTO>> (phieuDiem));
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreatePhieuDiem(AddPhieuDiemDTO addPhieuDiemDTO)

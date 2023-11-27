@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WOjQ5RJGrElC50RRvxTKzJQG8lIfPSsgfDKCTGY8urI=",
+  "Hash": "7SINTmIc/gjZlWTCxq1odAsm/fBvPcK1B5QX03q+6ZA=",
   "Source": "BE_QuanLiDiem",
   "BasePath": "_content/BE_QuanLiDiem",
   "Mode": "Default",
@@ -119,6 +119,40 @@
       "OriginalItemSpec": "wwwroot\\ImageDaiDoi\\imager_6_6789_700.jpg"
     },
     {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\Nitro_Wallpaper_5000x2813.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "ImageDaiDoi/Nitro_Wallpaper_5000x2813.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageDaiDoi\\Nitro_Wallpaper_5000x2813.jpg"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\Planet9_Wallpaper_5000x2813.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "ImageDaiDoi/Planet9_Wallpaper_5000x2813.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageDaiDoi\\Planet9_Wallpaper_5000x2813.jpg"
+    },
+    {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\PQ.png",
       "SourceId": "BE_QuanLiDiem",
       "SourceType": "Discovered",
@@ -134,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ImageDaiDoi\\PQ.png"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\yasuo-chan-long-kiem.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "ImageDaiDoi/yasuo-chan-long-kiem.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageDaiDoi\\yasuo-chan-long-kiem.jpg"
     },
     {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\272280053_914662209197563_5493043630659401290_n.jpg",
@@ -168,6 +219,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ImageLCN\\anh-luffy-yody-vn-9.webp"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\Nitro_Wallpaper_5000x2813.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "ImageLCN/Nitro_Wallpaper_5000x2813.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageLCN\\Nitro_Wallpaper_5000x2813.jpg"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\Planet9_Wallpaper_5000x2813.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "ImageLCN/Planet9_Wallpaper_5000x2813.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ImageLCN\\Planet9_Wallpaper_5000x2813.jpg"
     },
     {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\314932481_1977141262478866_2110097209587603375_n.jpg",
@@ -236,6 +321,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Planet9_Wallpaper_5000x2813.jpg"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\yasuo-chan-long-kiem.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "Images/yasuo-chan-long-kiem.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\yasuo-chan-long-kiem.jpg"
     }
   ]
 }

@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\Nitro_Wallpaper_5000x2813.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\Nitro_Wallpaper_5000x2813.jpg"
+    },
+    {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\PQ.png",
       "PackagePath": "staticwebassets\\ImageDaiDoi\\PQ.png"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\Planet9_Wallpaper_5000x2813.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\Planet9_Wallpaper_5000x2813.jpg"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\anh-luffy-yody-vn-9.webp",
@@ -29,8 +37,20 @@
       "PackagePath": "staticwebassets\\ImageDaiDoi\\imager_6_6789_700.jpg"
     },
     {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageDaiDoi\\yasuo-chan-long-kiem.jpg",
+      "PackagePath": "staticwebassets\\ImageDaiDoi\\yasuo-chan-long-kiem.jpg"
+    },
+    {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\272280053_914662209197563_5493043630659401290_n.jpg",
       "PackagePath": "staticwebassets\\ImageLCN\\272280053_914662209197563_5493043630659401290_n.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\Nitro_Wallpaper_5000x2813.jpg",
+      "PackagePath": "staticwebassets\\ImageLCN\\Nitro_Wallpaper_5000x2813.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\Planet9_Wallpaper_5000x2813.jpg",
+      "PackagePath": "staticwebassets\\ImageLCN\\Planet9_Wallpaper_5000x2813.jpg"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\anh-luffy-yody-vn-9.webp",
@@ -51,6 +71,10 @@
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",
       "PackagePath": "staticwebassets\\Images\\imager_6_6789_700.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\yasuo-chan-long-kiem.jpg",
+      "PackagePath": "staticwebassets\\Images\\yasuo-chan-long-kiem.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BE_QuanLiDiem.Microsoft.AspNetCore.StaticWebAssets.props",

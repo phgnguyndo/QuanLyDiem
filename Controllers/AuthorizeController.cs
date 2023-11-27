@@ -50,7 +50,7 @@ namespace BE_QuanLiDiem.Controllers
                 };
                 var token = tokenhandler.CreateToken(tokendesc);
                 var finalToken=tokenhandler.WriteToken(token);
-                return Ok(new  { Token=finalToken, RefreshToken=await this.refresh.GenerateToken(userCred.username), role= user.Role});
+                return Ok(new  { Token=finalToken, RefreshToken=await this.refresh.GenerateToken(userCred.username), infoUser= user});
 
             }
             else
@@ -84,7 +84,7 @@ namespace BE_QuanLiDiem.Controllers
             var token = tokenhandler.CreateToken(tokendesc);
             var finalToken = tokenhandler.WriteToken(token);
             
-            return Ok(new TokenResponse() { Token = finalToken, RefreshToken = await this.refresh.GenerateToken(userDTO.Code) });
+            return Ok(new { Token = finalToken, RefreshToken = await this.refresh.GenerateToken(userDTO.Code), infoUser=user });
 
         }
 
