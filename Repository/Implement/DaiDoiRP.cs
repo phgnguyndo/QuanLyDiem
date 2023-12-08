@@ -69,6 +69,8 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var exist = await dbContext.DaiDois.FirstOrDefaultAsync(x => x.MaDaiDoi == MaDaiDoi);
             if (exist == null) { return null; }
+            //var exist1 = await dbContext.DaiDois.FirstOrDefaultAsync(z => z.TenDaiDoi == aUdaiDoiDTO.TenDaiDoi);
+            //if(exist1!=null) { throw new InvalidOperationException("Dai Doi with the same name already exists."); }
             exist.TenDaiDoi=aUdaiDoiDTO.TenDaiDoi;
             exist.DaiDoiTruong = aUdaiDoiDTO.DaiDoiTruong;
             exist.QuanSo=aUdaiDoiDTO.QuanSo;

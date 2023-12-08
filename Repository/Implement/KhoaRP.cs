@@ -20,6 +20,8 @@ namespace BE_QuanLiDiem.Repository.Implement
             {
                 TenKhoa = addKhoaDTO.TenKhoa
             };
+            var exist = await dbContext.Khoas.FirstOrDefaultAsync(x => x.TenKhoa == addKhoaDTO.TenKhoa);
+            if (exist != null) { throw new InvalidOperationException("Khoa existed."); }
             dbContext.Khoas.Add(newKhoa);
             await dbContext.SaveChangesAsync();
             return newKhoa;

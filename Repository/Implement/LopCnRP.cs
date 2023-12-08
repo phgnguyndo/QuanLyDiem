@@ -34,6 +34,8 @@ namespace BE_QuanLiDiem.Repository.Implement
                 var pathImage = Path.Combine("ImageLCN", addLopCnDTO.file.FileName);
                 newLCN.AnhLCN = pathImage;
             }
+            var exist = await dbContext.LopChuyenNganhs.FirstOrDefaultAsync(x => x.TenLopChuyenNganh == addLopCnDTO.TenLopChuyenNganh);
+            if (exist != null) { throw new InvalidOperationException("LCN with the same name already exists."); }
             dbContext.LopChuyenNganhs.Add(newLCN);
             await dbContext.SaveChangesAsync();
             return newLCN;
@@ -71,6 +73,8 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var exist = await dbContext.LopChuyenNganhs.FirstOrDefaultAsync(x => x.MaLopChuyenNganh == MaLCN);
             if (exist == null) return null;
+            //var exist1 = await dbContext.LopChuyenNganhs.FirstOrDefaultAsync(z => z.TenLopChuyenNganh == updateLopCnDTO.TenLopChuyenNganh);
+            //if (exist1 != null) { throw new InvalidOperationException("LCN with the same name already exists."); }
             exist.DaiDoiId=updateLopCnDTO.DaiDoiId;
             exist.TenLopChuyenNganh = updateLopCnDTO.TenLopChuyenNganh;
             exist.SoHV=updateLopCnDTO.SoHV;

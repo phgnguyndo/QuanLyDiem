@@ -22,7 +22,7 @@ namespace BE_QuanLiDiem.Controllers
             this.mapper = mapper;
         }
         //[AllowAnonymous]
-        [Authorize(Roles =UserRole.ADMIN)]
+        //[Authorize(Roles =UserRole.ADMIN)]
         [HttpGet]
         public async Task<IActionResult> GetAllBoMon()
         {
@@ -31,10 +31,19 @@ namespace BE_QuanLiDiem.Controllers
         }
         
         [HttpGet]
-        [Route("{MaBM:Guid}")]
-        public async Task<IActionResult> GetBoMonbyId([FromRoute] Guid MaBM)
+        [Route("bomonbyid/{MaBM:Guid}")]
+        public async Task<IActionResult> GetBoMonById([FromRoute] Guid MaBM)
         {
-            var exist=await boMonRP.GetAllBoMonAsync();
+            var exist=await boMonRP.GetBoMonByIdAsync(MaBM);
+            if (exist == null) return NotFound();
+            return Ok(mapper.Map<BoMonDTO>(exist));
+        }
+        
+        [HttpGet]
+        [Route("bomonbyidkhoa/{MaKhoa:Guid}")]
+        public async Task<IActionResult> GetBoMonByIdKhoa([FromRoute] Guid MaKhoa)
+        {
+            var exist = await boMonRP.GetBoMonByIdKhoaAsync(MaKhoa);
             if (exist == null) return NotFound();
             return Ok(mapper.Map<List<BoMonDTO>>(exist));
         }

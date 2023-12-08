@@ -7,6 +7,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     public interface IBoMonRP
     {
         Task<List<BoMon>> GetAllBoMonAsync();
+        Task<List<BoMon>> GetBoMonByIdKhoaAsync(Guid MaKhoa);
         Task<BoMon> GetBoMonByIdAsync(Guid MaBM);
         Task<BoMon> CreateBoMonAsync(AddBoMonDTO addBoMonDTO);
         Task<BoMon> UpdateBoMonAsync(UpdateBoMonDTO updateBoMonDTO, Guid MaBM);

@@ -3,6 +3,7 @@ using BE_QuanLiDiem.Data;
 using BE_QuanLiDiem.Models.Domain;
 using BE_QuanLiDiem.Models.DTO.User;
 using BE_QuanLiDiem.Repository.Abstract;
+using Microsoft.EntityFrameworkCore;
 
 namespace BE_QuanLiDiem.Repository.Implement
 {
@@ -31,6 +32,8 @@ namespace BE_QuanLiDiem.Repository.Implement
                 Password=userDTO.Password,
                 Role=userDTO.Role
             };
+            var exist=await context.tbl_user.FirstOrDefaultAsync(x=> x.Code==userDTO.Code);
+            if(exist!=null) { throw new InvalidOperationException("username existed."); }
             context.tbl_user.Add(user);
             await context.SaveChangesAsync();
             return user;

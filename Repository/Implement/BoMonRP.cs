@@ -21,6 +21,8 @@ namespace BE_QuanLiDiem.Repository.Implement
                 TenBM = addBoMonDTO.TenBM,
                 KhoaId = addBoMonDTO.KhoaId
             };
+            var exist = await dbContext.BoMons.FirstOrDefaultAsync(x => x.TenBM == addBoMonDTO.TenBM);
+            if (exist != null) { throw new InvalidOperationException("Bo mon existed."); }
             dbContext.BoMons.Add(newBM);
             await dbContext.SaveChangesAsync();
             return newBM;
@@ -43,6 +45,13 @@ namespace BE_QuanLiDiem.Repository.Implement
         public async Task<BoMon> GetBoMonByIdAsync(Guid MaBM)
         {
             var exist = await dbContext.BoMons.FirstOrDefaultAsync(x => x.MaBM == MaBM);
+            if (exist == null) { return null; }
+            return exist;
+        }
+
+        public async Task<List<BoMon>> GetBoMonByIdKhoaAsync(Guid MaKhoa)
+        {
+            var exist = await dbContext.BoMons.Where(x => x.KhoaId == MaKhoa).ToListAsync();
             if (exist == null) { return null; }
             return exist;
         }

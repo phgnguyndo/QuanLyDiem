@@ -57,12 +57,28 @@
       "PackagePath": "staticwebassets\\ImageLCN\\anh-luffy-yody-vn-9.webp"
     },
     {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\ImageLCN\\cb7a6157a32b75752c3a.jpg",
+      "PackagePath": "staticwebassets\\ImageLCN\\cb7a6157a32b75752c3a.jpg"
+    },
+    {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\314932481_1977141262478866_2110097209587603375_n.jpg",
       "PackagePath": "staticwebassets\\Images\\314932481_1977141262478866_2110097209587603375_n.jpg"
     },
     {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\32219295-2092973284320691-677655679355322368-n-35aadb75-b32d-4fcb-97ec-cd368db19d73.jpeg",
+      "PackagePath": "staticwebassets\\Images\\32219295-2092973284320691-677655679355322368-n-35aadb75-b32d-4fcb-97ec-cd368db19d73.jpeg"
+    },
+    {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\Planet9_Wallpaper_5000x2813.jpg",
       "PackagePath": "staticwebassets\\Images\\Planet9_Wallpaper_5000x2813.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\anh-luffy-yody-vn-9.webp",
+      "PackagePath": "staticwebassets\\Images\\anh-luffy-yody-vn-9.webp"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\ca-phe-che-phin-558938j18888.webp",
+      "PackagePath": "staticwebassets\\Images\\ca-phe-che-phin-558938j18888.webp"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\download.png",
@@ -71,6 +87,10 @@
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",
       "PackagePath": "staticwebassets\\Images\\imager_6_6789_700.jpg"
+    },
+    {
+      "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\images (2).jfif",
+      "PackagePath": "staticwebassets\\Images\\images (2).jfif"
     },
     {
       "Id": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\yasuo-chan-long-kiem.jpg",

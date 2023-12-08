@@ -24,6 +24,8 @@ namespace BE_QuanLiDiem.Repository.Implement
                 HocKy = addHocPhanDTO.HocKy,
                 BoMonId = addHocPhanDTO.BoMonId
             };
+            var exist = await dbContext.HocPhans.FirstOrDefaultAsync(x => x.TenHocPhan == addHocPhanDTO.TenHocPhan);
+            if (exist != null) { throw new InvalidOperationException("HocPhan existed."); }
             dbContext.Add(newHocPhan);
             await dbContext.SaveChangesAsync();
             return newHocPhan;
