@@ -29,8 +29,8 @@ namespace BE_QuanLiDiem.Repository.Implement
                 //Email=userDTO.Email??null,
                 //Phone=userDTO.Phone ?? null,
                 IsActive=userDTO.IsActive ?? true,
-                Password=userDTO.Password,
-                Role=userDTO.Role
+                Password= BCrypt.Net.BCrypt.HashPassword(userDTO.Password),
+                Role =userDTO.Role
             };
             var exist=await context.tbl_user.FirstOrDefaultAsync(x=> x.Code==userDTO.Code);
             if(exist!=null) { throw new InvalidOperationException("username existed."); }

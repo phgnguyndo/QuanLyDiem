@@ -37,7 +37,7 @@ namespace BE_QuanLiDiem.Controllers
         
         [HttpGet]
         [Route("{MaHV}")]
-        public async Task<IActionResult> GetPhieuDiemById([FromRoute] string MaHV)
+        public async Task<IActionResult> GetPhieuDiemByIdHV([FromRoute] string MaHV)
         {
             var phieuDiem=await phieuDiemRP.GetPhieuDiemByIdHVAsync(MaHV);
             if(phieuDiem == null)   return NotFound();

@@ -170,3 +170,4 @@ D:\clonePr\BE_QuanLiDiem3\BE_QuanLiDiem\obj\Debug\net7.0\refint\BE_QuanLiDiem.dl
 D:\clonePr\BE_QuanLiDiem3\BE_QuanLiDiem\obj\Debug\net7.0\BE_QuanLiDiem.pdb
 D:\clonePr\BE_QuanLiDiem3\BE_QuanLiDiem\obj\Debug\net7.0\BE_QuanLiDiem.genruntimeconfig.cache
 D:\clonePr\BE_QuanLiDiem3\BE_QuanLiDiem\obj\Debug\net7.0\ref\BE_QuanLiDiem.dll
+D:\clonePr\BE_QuanLiDiem3\BE_QuanLiDiem\bin\Debug\net7.0\BCrypt.Net.dll

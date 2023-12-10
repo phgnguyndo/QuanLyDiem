@@ -37,7 +37,14 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<List<GiangVien>> GetAllGiangVienAsync()
         {
-            return await dbContext.GiangViens.ToListAsync();
+            return await dbContext.GiangViens.Include("BoMon").ToListAsync();
+        }
+
+        public async Task<List<GiangVien>> GetGiangVienBoMonAsync(Guid MaBM)
+        {
+            var exist = await dbContext.GiangViens.Where(x => x.BoMonId==MaBM).ToListAsync();
+            if (exist == null) { return null; }
+            return exist;
         }
 
         public async Task<GiangVien> GetGiangVienByIdAsync(Guid MaGV)

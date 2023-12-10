@@ -36,6 +36,16 @@ namespace BE_QuanLiDiem.Controllers
             if (exist == null) return NotFound();
             return Ok(mapper.Map<GiangVienDTO>(exist));
         }
+        
+        [HttpGet]
+        [Route("bymabm/{MaBM:Guid}")]
+        public async Task<IActionResult> GetGiangVienByIdBM([FromRoute] Guid MaBM)
+        {
+            var exist = await giangVienRP.GetGiangVienBoMonAsync(MaBM);
+            if (exist == null) return NotFound();
+            return Ok(mapper.Map<List<GiangVienDTO>>(exist));
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateGiangVien(AddGiangVienDTO addGiangVienDTO)
         {

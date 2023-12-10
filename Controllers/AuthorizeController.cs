@@ -32,8 +32,8 @@ namespace BE_QuanLiDiem.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> GenerateToken([FromBody] UserCred userCred)
         {
-            var user = await this.context.tbl_user.FirstOrDefaultAsync(x => x.Code == userCred.username && x.Password == userCred.password);
-            if (user != null)
+            var user = await this.context.tbl_user.FirstOrDefaultAsync(x => x.Code == userCred.username);
+            if (user != null && BCrypt.Net.BCrypt.Verify(userCred.password, user.Password))
             {
                 //generate token
                 var tokenhandler=new JwtSecurityTokenHandler();

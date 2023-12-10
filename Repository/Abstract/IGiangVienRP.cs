@@ -8,6 +8,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     public interface IGiangVienRP
     {
         Task<List<GiangVien>> GetAllGiangVienAsync();
+        Task<List<GiangVien>> GetGiangVienBoMonAsync(Guid MaBM);
         Task<GiangVien> GetGiangVienByIdAsync(Guid MaGV);
         Task<GiangVien> CreateGiangVienAsync(AddGiangVienDTO addGiangVienDTO);
         Task<GiangVien> UpdateGiangVienAsync(UpdateGiangVienDTO updateGiangVienDTO, Guid MaGV);

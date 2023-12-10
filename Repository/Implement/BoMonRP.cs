@@ -39,7 +39,7 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<List<BoMon>> GetAllBoMonAsync()
         {
-            return await dbContext.BoMons.ToListAsync();
+            return await dbContext.BoMons.Include("Khoa").ToListAsync();
         }
 
         public async Task<BoMon> GetBoMonByIdAsync(Guid MaBM)

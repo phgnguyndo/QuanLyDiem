@@ -6,6 +6,7 @@ namespace BE_QuanLiDiem.Models.DTO.PhieuDiem
 {
     public class PhieuDiemDTO
     {
+        public Guid MaPhieuDiem { get; set; }
         public Guid HocPhanId { get; set; }
         public string HocVienId { get; set; }
         public float? DiemCC { get; set; }

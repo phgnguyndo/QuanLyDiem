@@ -28,7 +28,7 @@ namespace BE_QuanLiDiem.Models.Domain
         [Unicode(false)]
         public string? Phone { get; set; }
         [Column("Password")]
-        [StringLength(50)]
+        [StringLength(500)]
         [Unicode(false)]
         public string? Password { get; set; }
         [Column("IsActive")]
