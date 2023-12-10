@@ -42,7 +42,7 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<List<HocPhan>> GetAllHocPhanAsync()
         {
-            return await dbContext.HocPhans.ToListAsync();
+            return await dbContext.HocPhans.Include("BoMon").ToListAsync();
         }
 
         public async Task<HocPhan> GetHocPhanByIdAsync(Guid MaHocPhan)

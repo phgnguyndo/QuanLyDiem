@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BE_QuanLiDiem.Migrations
 {
     /// <inheritdoc />
-    public partial class init1 : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,7 +63,7 @@ namespace BE_QuanLiDiem.Migrations
                     Name = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
                     Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
                     Phone = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Password = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    Password = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: true),
                     IsActive = table.Column<bool>(type: "bit", unicode: false, maxLength: 50, nullable: true),
                     Role = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true)
                 },
@@ -78,7 +78,7 @@ namespace BE_QuanLiDiem.Migrations
                 {
                     MaLopChuyenNganh = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DaiDoiId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AnhLCN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnhLCN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TenLopChuyenNganh = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoHV = table.Column<int>(type: "int", nullable: false)
                 },
@@ -142,7 +142,9 @@ namespace BE_QuanLiDiem.Migrations
                 {
                     MaGV = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TenGV = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sdt = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    GioiTinh = table.Column<bool>(type: "bit", nullable: true),
+                    CapBac = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    sdt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BoMonId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -280,16 +282,15 @@ namespace BE_QuanLiDiem.Migrations
                 columns: table => new
                 {
                     MaHocTap = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    hvId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LopHocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HocVienMaHV = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    HocVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    LopHocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HocTaps", x => x.MaHocTap);
                     table.ForeignKey(
-                        name: "FK_HocTaps_HocViens_HocVienMaHV",
-                        column: x => x.HocVienMaHV,
+                        name: "FK_HocTaps_HocViens_HocVienId",
+                        column: x => x.HocVienId,
                         principalTable: "HocViens",
                         principalColumn: "MaHV",
                         onDelete: ReferentialAction.Cascade);
@@ -337,9 +338,9 @@ namespace BE_QuanLiDiem.Migrations
                 column: "BoMonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HocTaps_HocVienMaHV",
+                name: "IX_HocTaps_HocVienId",
                 table: "HocTaps",
-                column: "HocVienMaHV");
+                column: "HocVienId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HocTaps_LopHocPhanId",

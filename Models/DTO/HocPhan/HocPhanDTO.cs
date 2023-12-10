@@ -1,4 +1,6 @@
-﻿namespace BE_QuanLiDiem.Models.DTO.HocPhan
+﻿using BE_QuanLiDiem.Models.DTO.BoMon;
+
+namespace BE_QuanLiDiem.Models.DTO.HocPhan
 {
     public class HocPhanDTO
     {
@@ -8,5 +10,6 @@
         public int SoTC { get; set; }
         public int HocKy { get; set; }
         public Guid BoMonId { get; set; }
+        public BoMonDTO BoMon { get; set; }
     }
 }

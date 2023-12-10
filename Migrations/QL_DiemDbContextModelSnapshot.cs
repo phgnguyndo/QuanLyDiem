@@ -118,12 +118,17 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<Guid>("BoMonId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CapBac")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("GioiTinh")
+                        .HasColumnType("bit");
+
                     b.Property<string>("TenGV")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sdt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("MaGV");
@@ -168,20 +173,16 @@ namespace BE_QuanLiDiem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("HocVienMaHV")
+                    b.Property<string>("HocVienId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("LopHocPhanId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("hvId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("MaHocTap");
 
-                    b.HasIndex("HocVienMaHV");
+                    b.HasIndex("HocVienId");
 
                     b.HasIndex("LopHocPhanId");
 
@@ -248,7 +249,6 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AnhLCN")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("DaiDoiId")
@@ -394,9 +394,9 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnName("Name");
 
                     b.Property<string>("Password")
-                        .HasMaxLength(50)
+                        .HasMaxLength(500)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
+                        .HasColumnType("varchar(500)")
                         .HasColumnName("Password");
 
                     b.Property<string>("Phone")
@@ -489,7 +489,7 @@ namespace BE_QuanLiDiem.Migrations
                 {
                     b.HasOne("BE_QuanLiDiem.Models.Domain.HocVien", "HocVien")
                         .WithMany()
-                        .HasForeignKey("HocVienMaHV")
+                        .HasForeignKey("HocVienId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
