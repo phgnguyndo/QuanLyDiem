@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WRBPgM8yfvN8quVwwVbB8Y70gjBC8dRaEsveBuyiXqg=",
+  "Hash": "qbpAWHRvuZoFZoOk+7TMoAvIdRblG83FxAPH4X7VRn8=",
   "Source": "BE_QuanLiDiem",
   "BasePath": "_content/BE_QuanLiDiem",
   "Mode": "Default",
@@ -357,6 +357,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\32219295-2092973284320691-677655679355322368-n-35aadb75-b32d-4fcb-97ec-cd368db19d73.jpeg"
     },
     {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\4fd41dd38b3759690026.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "Images/4fd41dd38b3759690026.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\4fd41dd38b3759690026.jpg"
+    },
+    {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\anh-luffy-yody-vn-9.webp",
       "SourceId": "BE_QuanLiDiem",
       "SourceType": "Discovered",
@@ -406,6 +423,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\download.png"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\hinh-nen-may-tinh-kiem-si-ngau-ba-dao-full-hd.jpg",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "Images/hinh-nen-may-tinh-kiem-si-ngau-ba-dao-full-hd.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\hinh-nen-may-tinh-kiem-si-ngau-ba-dao-full-hd.jpg"
     },
     {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\imager_6_6789_700.jpg",

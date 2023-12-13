@@ -18,7 +18,8 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var newHocTap = new HocTap
             {
-                HocVienId = aUHocTapDTO.HocVienId,
+
+                LopChuyenNganhId = aUHocTapDTO.LopChuyenNganhId,
                 LopHocPhanId = aUHocTapDTO.LopHocPhanId
             };
             dbContext.HocTaps.Add(newHocTap);
@@ -40,9 +41,9 @@ namespace BE_QuanLiDiem.Repository.Implement
             return await dbContext.HocTaps.ToListAsync();
         }
 
-        public async Task<List<HocTap>> GetHocTapByIdHVAsync(string MaHV)
+        public async Task<List<HocTap>> GetHocTapByIdHVAsync(Guid MaLCN)
         {
-            var ht= await dbContext.HocTaps.Where(x=>x.HocVienId==MaHV).ToListAsync();
+            var ht= await dbContext.HocTaps.Where(x=>x.LopChuyenNganhId==MaLCN).ToListAsync();
             if (ht == null) return null;
             return ht;
         }
@@ -51,7 +52,7 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var ht = await dbContext.HocTaps.FirstOrDefaultAsync(x => x.MaHocTap == MaHocTap);
             if (ht == null) return null;
-            ht.HocVienId=aUHocTapDTO.HocVienId;
+            ht.LopChuyenNganhId=aUHocTapDTO.LopChuyenNganhId;
             ht.LopHocPhanId = aUHocTapDTO.LopHocPhanId;
             await dbContext.SaveChangesAsync();
             return ht;

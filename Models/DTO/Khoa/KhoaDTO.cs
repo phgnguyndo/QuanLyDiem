@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BE_QuanLiDiem.Models.DTO.BoMon;
+using System.ComponentModel.DataAnnotations;
 
 namespace BE_QuanLiDiem.Models.DTO.Khoa
 {

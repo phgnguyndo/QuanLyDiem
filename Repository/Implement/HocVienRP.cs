@@ -50,9 +50,11 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
-        public async Task<List<HocVien>> GetAllHocVienAsync()
+        public async Task<List<HocVien>> GetAllHocVienAsync(int pageNumber, int pageSize)
         {
-            return await dbContext.HocViens.ToListAsync();
+            var skipResults=(pageNumber-1)*pageSize;
+            return await dbContext.HocViens.Skip(skipResults).Take(pageSize).ToListAsync();
+            //return await dbContext.HocViens.ToListAsync();
         }
 
         public async Task<HocVien> GetHocVienByIdAsync(string MaHV)

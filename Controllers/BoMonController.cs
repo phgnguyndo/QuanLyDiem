@@ -22,7 +22,7 @@ namespace BE_QuanLiDiem.Controllers
             this.mapper = mapper;
         }
         //[AllowAnonymous]
-        //[Authorize(Roles =UserRole.ADMIN)]
+        //[Authorize(Roles = UserRole.ADMIN)]
         [HttpGet]
         public async Task<IActionResult> GetAllBoMon()
         {

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BE_QuanLiDiem.Migrations
 {
     [DbContext(typeof(QL_DiemDbContext))]
-    [Migration("20231210031050_init")]
+    [Migration("20231212174009_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -43,27 +43,6 @@ namespace BE_QuanLiDiem.Migrations
                     b.HasIndex("KhoaId");
 
                     b.ToTable("BoMons");
-                });
-
-            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.ChuongTrinh", b =>
-                {
-                    b.Property<Guid>("MaChuongTrinh")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("HocPhanId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("LopChuyenNganhId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("MaChuongTrinh");
-
-                    b.HasIndex("HocPhanId");
-
-                    b.HasIndex("LopChuyenNganhId");
-
-                    b.ToTable("ChuongTrinhs");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DaiDoi", b =>
@@ -100,8 +79,9 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<Guid>("GiangVienId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("LopHocPhanId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("LopHocPhanId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("MaDayHoc");
 
@@ -110,6 +90,31 @@ namespace BE_QuanLiDiem.Migrations
                     b.HasIndex("LopHocPhanId");
 
                     b.ToTable("DayHocs");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DiemTrungBinh", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("DTB")
+                        .HasColumnType("real");
+
+                    b.Property<int>("HocKy")
+                        .HasColumnType("int");
+
+                    b.Property<string>("HocVienId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HocVienId");
+
+                    b.ToTable("DiemTrungBinhs");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.GiangVien", b =>
@@ -176,16 +181,16 @@ namespace BE_QuanLiDiem.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("HocVienId")
+                    b.Property<Guid>("LopChuyenNganhId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("LopHocPhanId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("LopHocPhanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("MaHocTap");
 
-                    b.HasIndex("HocVienId");
+                    b.HasIndex("LopChuyenNganhId");
 
                     b.HasIndex("LopHocPhanId");
 
@@ -273,9 +278,12 @@ namespace BE_QuanLiDiem.Migrations
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.LopHocPhan", b =>
                 {
-                    b.Property<Guid>("MaLopHocPhan")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("MaLopHocPhan")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DiaDiem")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("HocPhanId")
                         .HasColumnType("uniqueidentifier");
@@ -430,25 +438,6 @@ namespace BE_QuanLiDiem.Migrations
                     b.Navigation("Khoa");
                 });
 
-            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.ChuongTrinh", b =>
-                {
-                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocPhan", "HocPhan")
-                        .WithMany()
-                        .HasForeignKey("HocPhanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BE_QuanLiDiem.Models.Domain.LopChuyenNganh", "LopChuyenNganh")
-                        .WithMany()
-                        .HasForeignKey("LopChuyenNganhId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HocPhan");
-
-                    b.Navigation("LopChuyenNganh");
-                });
-
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DayHoc", b =>
                 {
                     b.HasOne("BE_QuanLiDiem.Models.Domain.GiangVien", "GiangVien")
@@ -464,6 +453,17 @@ namespace BE_QuanLiDiem.Migrations
                     b.Navigation("GiangVien");
 
                     b.Navigation("LopHocPhan");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.DiemTrungBinh", b =>
+                {
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocVien", "HocVien")
+                        .WithMany()
+                        .HasForeignKey("HocVienId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HocVien");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.GiangVien", b =>
@@ -490,9 +490,9 @@ namespace BE_QuanLiDiem.Migrations
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.HocTap", b =>
                 {
-                    b.HasOne("BE_QuanLiDiem.Models.Domain.HocVien", "HocVien")
+                    b.HasOne("BE_QuanLiDiem.Models.Domain.LopChuyenNganh", "LopChuyenNganh")
                         .WithMany()
-                        .HasForeignKey("HocVienId")
+                        .HasForeignKey("LopChuyenNganhId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -502,7 +502,7 @@ namespace BE_QuanLiDiem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("HocVien");
+                    b.Navigation("LopChuyenNganh");
 
                     b.Navigation("LopHocPhan");
                 });

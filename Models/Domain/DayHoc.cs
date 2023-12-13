@@ -9,7 +9,7 @@ namespace BE_QuanLiDiem.Models.Domain
         [Key] public Guid MaDayHoc { get; set; }  
         public Guid GiangVienId { get; set; }
 
-        public Guid LopHocPhanId { get; set; }
+        public string LopHocPhanId { get; set; }
 
         [DeleteBehavior(DeleteBehavior.ClientSetNull)]
         public GiangVien GiangVien { get; set;}

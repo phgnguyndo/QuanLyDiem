@@ -181,27 +181,23 @@ namespace BE_QuanLiDiem.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChuongTrinhs",
+                name: "DiemTrungBinhs",
                 columns: table => new
                 {
-                    MaChuongTrinh = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopChuyenNganhId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HocKy = table.Column<int>(type: "int", nullable: false),
+                    HocVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DTB = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChuongTrinhs", x => x.MaChuongTrinh);
+                    table.PrimaryKey("PK_DiemTrungBinhs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ChuongTrinhs_HocPhans_HocPhanId",
-                        column: x => x.HocPhanId,
-                        principalTable: "HocPhans",
-                        principalColumn: "MaHocPhan",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChuongTrinhs_LopChuyenNganhs_LopChuyenNganhId",
-                        column: x => x.LopChuyenNganhId,
-                        principalTable: "LopChuyenNganhs",
-                        principalColumn: "MaLopChuyenNganh",
+                        name: "FK_DiemTrungBinhs_HocViens_HocVienId",
+                        column: x => x.HocVienId,
+                        principalTable: "HocViens",
+                        principalColumn: "MaHV",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -209,7 +205,8 @@ namespace BE_QuanLiDiem.Migrations
                 name: "LopHocPhans",
                 columns: table => new
                 {
-                    MaLopHocPhan = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    MaLopHocPhan = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    DiaDiem = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoHV = table.Column<int>(type: "int", nullable: false),
                     HocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -260,7 +257,7 @@ namespace BE_QuanLiDiem.Migrations
                 {
                     MaDayHoc = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     GiangVienId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LopHocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    LopHocPhanId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -282,17 +279,17 @@ namespace BE_QuanLiDiem.Migrations
                 columns: table => new
                 {
                     MaHocTap = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    HocVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LopHocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    LopChuyenNganhId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    LopHocPhanId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HocTaps", x => x.MaHocTap);
                     table.ForeignKey(
-                        name: "FK_HocTaps_HocViens_HocVienId",
-                        column: x => x.HocVienId,
-                        principalTable: "HocViens",
-                        principalColumn: "MaHV",
+                        name: "FK_HocTaps_LopChuyenNganhs_LopChuyenNganhId",
+                        column: x => x.LopChuyenNganhId,
+                        principalTable: "LopChuyenNganhs",
+                        principalColumn: "MaLopChuyenNganh",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_HocTaps_LopHocPhans_LopHocPhanId",
@@ -308,16 +305,6 @@ namespace BE_QuanLiDiem.Migrations
                 column: "KhoaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChuongTrinhs_HocPhanId",
-                table: "ChuongTrinhs",
-                column: "HocPhanId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChuongTrinhs_LopChuyenNganhId",
-                table: "ChuongTrinhs",
-                column: "LopChuyenNganhId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_DayHocs_GiangVienId",
                 table: "DayHocs",
                 column: "GiangVienId");
@@ -326,6 +313,11 @@ namespace BE_QuanLiDiem.Migrations
                 name: "IX_DayHocs_LopHocPhanId",
                 table: "DayHocs",
                 column: "LopHocPhanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DiemTrungBinhs_HocVienId",
+                table: "DiemTrungBinhs",
+                column: "HocVienId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GiangViens_BoMonId",
@@ -338,9 +330,9 @@ namespace BE_QuanLiDiem.Migrations
                 column: "BoMonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HocTaps_HocVienId",
+                name: "IX_HocTaps_LopChuyenNganhId",
                 table: "HocTaps",
-                column: "HocVienId");
+                column: "LopChuyenNganhId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HocTaps_LopHocPhanId",
@@ -377,10 +369,10 @@ namespace BE_QuanLiDiem.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ChuongTrinhs");
+                name: "DayHocs");
 
             migrationBuilder.DropTable(
-                name: "DayHocs");
+                name: "DiemTrungBinhs");
 
             migrationBuilder.DropTable(
                 name: "HocTaps");

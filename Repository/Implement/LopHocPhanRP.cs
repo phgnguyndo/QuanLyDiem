@@ -19,6 +19,8 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             var newLHP = new LopHocPhan
             {
+                MaLopHocPhan= addLopHocPhanDTO.MaLopHocPhan,
+                DiaDiem= addLopHocPhanDTO.DiaDiem,
                 SoHV = addLopHocPhanDTO.SoHV,
                 HocPhanId = addLopHocPhanDTO.HocPhanId
             };
@@ -27,7 +29,7 @@ namespace BE_QuanLiDiem.Repository.Implement
             return newLHP;
         }
 
-        public async Task<LopHocPhan> DeleteLHPAsync(Guid MaLHP)
+        public async Task<LopHocPhan> DeleteLHPAsync(string MaLHP)
         {
             var exist= await dbContext.LopHocPhans.FirstOrDefaultAsync(x=>x.MaLopHocPhan==MaLHP);
             if (exist==null) { return null; }
@@ -38,20 +40,21 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<List<LopHocPhan>> GetAllLHPAsync()
         {
-            return await dbContext.LopHocPhans.ToListAsync();
+            return await dbContext.LopHocPhans.Include("HocPhan").ToListAsync();
         }
 
-        public async Task<LopHocPhan> GetLHPByIdAsync(Guid MaLHP)
+        public async Task<LopHocPhan> GetLHPByIdAsync(string MaLHP)
         {
             var exist = await dbContext.LopHocPhans.FirstOrDefaultAsync(x => x.MaLopHocPhan == MaLHP);
             if (exist == null) { return null; }
             return exist;
         }
 
-        public async Task<LopHocPhan> UpdateLHPAsync(UpdateLopHocPhanDTO updateLopHocPhanDTO, Guid MaLHP)
+        public async Task<LopHocPhan> UpdateLHPAsync(UpdateLopHocPhanDTO updateLopHocPhanDTO, string MaLHP)
         {
             var exist = await dbContext.LopHocPhans.FirstOrDefaultAsync(x => x.MaLopHocPhan == MaLHP);
             if (exist == null) { return null; }
+            exist.DiaDiem=updateLopHocPhanDTO.DiaDiem;
             exist.SoHV=updateLopHocPhanDTO.SoHV;
             exist.HocPhanId = updateLopHocPhanDTO.HocPhanId;
             await dbContext.SaveChangesAsync();

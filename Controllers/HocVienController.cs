@@ -20,9 +20,9 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllHocVien()
+        public async Task<IActionResult> GetAllHocVien([FromQuery] int pageNumber, [FromQuery] int pageSize)
         {
-            var hocViens= await hocVienRP.GetAllHocVienAsync();
+            var hocViens= await hocVienRP.GetAllHocVienAsync(pageNumber, pageSize);
             return Ok(mapper.Map<List<HocVienDTO>>(hocViens));
         }
 

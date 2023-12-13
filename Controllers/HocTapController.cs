@@ -26,10 +26,10 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
-        [Route("{MaHV}")]
-        public async Task<IActionResult> GetHocTapByIdHV([FromRoute] string MaHV)
+        [Route("{MaLCN:Guid}")]
+        public async Task<IActionResult> GetHocTapByIdLCN([FromRoute] Guid MaLCN)
         {
-            var hocTap = await hocTapRP.GetHocTapByIdHVAsync(MaHV);
+            var hocTap = await hocTapRP.GetHocTapByIdHVAsync(MaLCN);
             if (hocTap == null) { return NotFound(); }
             return Ok(mapper.Map<List<HocTapDTO>>(hocTap));
         }

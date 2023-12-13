@@ -2,7 +2,7 @@
 {
     public class AUHocTapDTO
     {
-        public string HocVienId { get; set; }
-        public Guid LopHocPhanId { get; set; }
+        public string LopHocPhanId { get; set; }
+        public Guid LopChuyenNganhId { get; set; }
     }
 }

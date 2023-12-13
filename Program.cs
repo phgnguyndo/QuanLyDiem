@@ -54,8 +54,9 @@ builder.Services.AddScoped<ILopCnRP, LopCnRP>();
 builder.Services.AddScoped<IDaiDoiRP, DaiDoiRP>();
 builder.Services.AddScoped<IRefreshHandler, RefreshHandler>();
 builder.Services.AddScoped<ICreateUser, CreateUser>();
-builder.Services.AddScoped<IChuongTrinhRP, ChuongTrinhRP>();
+//builder.Services.AddScoped<IChuongTrinhRP, ChuongTrinhRP>();
 builder.Services.AddScoped<IHocTapRP, HocTapRP>(); 
+builder.Services.AddScoped<IDtbRp, DtbRP>(); 
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 var _jwtsettings = builder.Configuration.GetSection("JwtSettings");

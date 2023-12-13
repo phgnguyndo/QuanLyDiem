@@ -27,8 +27,8 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
-        [Route("{MaLHP:Guid}")]
-        public async Task<IActionResult> GetLHPbyId([FromRoute] Guid MaLHP)
+        [Route("{MaLHP}")]
+        public async Task<IActionResult> GetLHPbyId([FromRoute] string MaLHP)
         {
             var exist= await lhpRP.GetLHPByIdAsync(MaLHP);
             if(exist==null) return NotFound();
@@ -43,8 +43,8 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPut]
-        [Route("{MaLHP:Guid}")]
-        public async Task<IActionResult> UpdateLHP([FromRoute] Guid MaLHP, UpdateLopHocPhanDTO updateLopHocPhanDTO)
+        [Route("{MaLHP}")]
+        public async Task<IActionResult> UpdateLHP([FromRoute] string MaLHP, UpdateLopHocPhanDTO updateLopHocPhanDTO)
         {
             var exist=await lhpRP.UpdateLHPAsync(updateLopHocPhanDTO, MaLHP);
             if(exist==null) return NotFound();
@@ -52,8 +52,8 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpDelete]
-        [Route("{MaLHP:Guid}")]
-        public async Task<IActionResult> DeleteLHP([FromRoute] Guid MaLHP)
+        [Route("{MaLHP}")]
+        public async Task<IActionResult> DeleteLHP([FromRoute] string MaLHP)
         {
             var exist=await lhpRP.DeleteLHPAsync(MaLHP);
             if(exist==null) return NotFound();

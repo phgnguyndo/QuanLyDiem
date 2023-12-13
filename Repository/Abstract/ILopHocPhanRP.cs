@@ -7,9 +7,9 @@ namespace BE_QuanLiDiem.Repository.Abstract
     public interface ILopHocPhanRP
     {
         Task<List<LopHocPhan>> GetAllLHPAsync();
-        Task<LopHocPhan> GetLHPByIdAsync(Guid MaLHP);
+        Task<LopHocPhan> GetLHPByIdAsync(string MaLHP);
         Task<LopHocPhan> CreateLHPAsync(AddLopHocPhanDTO addLopHocPhanDTO);
-        Task<LopHocPhan> UpdateLHPAsync(UpdateLopHocPhanDTO updateLopHocPhanDTO, Guid MaLHP);
-        Task<LopHocPhan> DeleteLHPAsync(Guid MaLHP);
+        Task<LopHocPhan> UpdateLHPAsync(UpdateLopHocPhanDTO updateLopHocPhanDTO, string MaLHP);
+        Task<LopHocPhan> DeleteLHPAsync(string MaLHP);
     }
 }
