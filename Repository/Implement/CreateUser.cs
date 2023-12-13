@@ -25,10 +25,10 @@ namespace BE_QuanLiDiem.Repository.Implement
             var user = new tbl_user
             {
                 Code=userDTO.Code,
-                Name=userDTO.Name?? userDTO.Code,
-                //Email=userDTO.Email??null,
-                //Phone=userDTO.Phone ?? null,
-                IsActive=userDTO.IsActive ?? true,
+                //MaDaiDoi=userDTO.MaDaiDoi,
+                //MaHV=userDTO.MaHV,
+                MaDaiDoi=userDTO.MaDaiDoi,
+                MaHV=userDTO.MaHV,
                 Password= BCrypt.Net.BCrypt.HashPassword(userDTO.Password),
                 Role =userDTO.Role
             };

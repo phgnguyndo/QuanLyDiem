@@ -19,6 +19,8 @@ namespace BE_QuanLiDiem.Repository.Implement
             { 
                 TenGV = addGiangVienDTO.TenGV,
                 sdt = addGiangVienDTO.sdt,
+                GioiTinh=addGiangVienDTO.GioiTinh,
+                CapBac=addGiangVienDTO.CapBac,
                 BoMonId = addGiangVienDTO.BoMonId
             };
             dbContext.GiangViens.AddAsync(newGV);

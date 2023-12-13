@@ -383,35 +383,23 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("varchar(50)")
                         .HasColumnName("Code");
 
-                    b.Property<string>("Email")
+                    b.Property<Guid?>("MaDaiDoi")
+                        .HasMaxLength(100)
+                        .IsUnicode(false)
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("MaDaiDoi");
+
+                    b.Property<string>("MaHV")
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
-                        .HasColumnName("Email");
-
-                    b.Property<bool?>("IsActive")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("bit")
-                        .HasColumnName("IsActive");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Name");
+                        .HasColumnName("MaHV");
 
                     b.Property<string>("Password")
                         .HasMaxLength(500)
                         .IsUnicode(false)
                         .HasColumnType("varchar(500)")
                         .HasColumnName("Password");
-
-                    b.Property<string>("Phone")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("Phone");
 
                     b.Property<string>("Role")
                         .HasMaxLength(50)

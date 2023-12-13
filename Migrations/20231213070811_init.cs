@@ -60,11 +60,9 @@ namespace BE_QuanLiDiem.Migrations
                     Id = table.Column<int>(type: "int", unicode: false, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Code = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Email = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Phone = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    MaDaiDoi = table.Column<Guid>(type: "uniqueidentifier", unicode: false, maxLength: 100, nullable: true),
+                    MaHV = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
                     Password = table.Column<string>(type: "varchar(500)", unicode: false, maxLength: 500, nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", unicode: false, maxLength: 50, nullable: true),
                     Role = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true)
                 },
                 constraints: table =>
