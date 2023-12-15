@@ -9,6 +9,7 @@ namespace BE_QuanLiDiem.Models.Domain
         public int HocKy { get; set; }
         public string HocVienId { get; set; }
         public float DTB { get; set; } = 0;
+        public int TongTC { get; set; }
         public HocVien HocVien { get; set; }    
     }
 }

@@ -16,7 +16,7 @@ namespace BE_QuanLiDiem.Models.DTO.PhieuDiem
         public int? LanThi { get; set; }
         public HocPhanDTO HocPhan { get;set ; }
         //public string DiemChu { get; set; }
-        //public float DiemTBM { get; set; }
+        public float? DiemTBM { get; set; }
         //public float DiemTK_HocKy { get; set; }
         //public float DiemTK_Nam { get; set; }
     }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BE_QuanLiDiem.Migrations
 {
     [DbContext(typeof(QL_DiemDbContext))]
-    [Migration("20231213070811_init")]
+    [Migration("20231213150303_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -109,6 +109,9 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<string>("HocVienId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TongTC")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -305,6 +308,9 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<float>("DiemCC")
+                        .HasColumnType("real");
+
+                    b.Property<float>("DiemTBM")
                         .HasColumnType("real");
 
                     b.Property<float>("DiemTX")

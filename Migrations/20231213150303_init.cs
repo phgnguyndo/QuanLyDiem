@@ -186,7 +186,8 @@ namespace BE_QuanLiDiem.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HocKy = table.Column<int>(type: "int", nullable: false),
                     HocVienId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DTB = table.Column<float>(type: "real", nullable: false)
+                    DTB = table.Column<float>(type: "real", nullable: false),
+                    TongTC = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -230,7 +231,8 @@ namespace BE_QuanLiDiem.Migrations
                     DiemTX = table.Column<float>(type: "real", nullable: false),
                     DiemThi = table.Column<float>(type: "real", nullable: false),
                     DiemThiLai = table.Column<float>(type: "real", nullable: false),
-                    LanThi = table.Column<int>(type: "int", nullable: false)
+                    LanThi = table.Column<int>(type: "int", nullable: false),
+                    DiemTBM = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {

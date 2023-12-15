@@ -48,6 +48,7 @@ namespace BE_QuanLiDiem.Repository.Implement
             //exist.HocVienId = updateDTBdto.HocVienId;
             //exist.HocKy=updateDTBdto.HocKy;
             exist.DTB=updateDTBdto.DTB;
+            exist.TongTC=updateDTBdto.TongTC;
             await dbContext.SaveChangesAsync();
             return exist;
         }

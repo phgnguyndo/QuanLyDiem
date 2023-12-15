@@ -107,6 +107,9 @@ namespace BE_QuanLiDiem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("TongTC")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HocVienId");
@@ -302,6 +305,9 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<float>("DiemCC")
+                        .HasColumnType("real");
+
+                    b.Property<float>("DiemTBM")
                         .HasColumnType("real");
 
                     b.Property<float>("DiemTX")

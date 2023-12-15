@@ -19,7 +19,7 @@ namespace BE_QuanLiDiem.Models.Domain
         public float DiemThiLai { get; set; }
         public int LanThi { get; set; }
         //public string DiemChu { get; set; }
-        //public float DiemTBM { get; set; }
+        public float DiemTBM { get; set; } = 0;
         //public float DiemTK_HocKy { get; set; }
         //public float DiemTK_Nam { get; set; }
 

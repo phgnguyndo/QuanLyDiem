@@ -16,6 +16,7 @@ namespace BE_QuanLiDiem.Repository.Implement
         }
         public async Task<PhieuDiem> CreatePhieuDiemAsync(AddPhieuDiemDTO addPhieuDiemDTO)
         {
+            var a = (float)(addPhieuDiemDTO.DiemCC * 0.1 + addPhieuDiemDTO.DiemTX * 0.3 + addPhieuDiemDTO.DiemThi * 0.6);
             var newPhieuDiem = new PhieuDiem
             {
                 HocPhanId=addPhieuDiemDTO.HocPhanId,
@@ -23,10 +24,10 @@ namespace BE_QuanLiDiem.Repository.Implement
                 DiemCC=addPhieuDiemDTO.DiemCC,
                 DiemTX=addPhieuDiemDTO.DiemTX,
                 DiemThi=addPhieuDiemDTO.DiemThi,
-                //DiemTBM=addPhieuDiemDTO.DiemTBM,
+                DiemTBM = a,
                 //DiemTK_HocKy=addPhieuDiemDTO.DiemTK_HocKy,
                 //DiemTK_Nam=addPhieuDiemDTO.DiemTK_Nam,
-                DiemThiLai=addPhieuDiemDTO.DiemThiLai,
+                DiemThiLai =addPhieuDiemDTO.DiemThiLai,
                 LanThi=addPhieuDiemDTO.LanThi,
                 //DiemChu=addPhieuDiemDTO.DiemChu
             };
@@ -65,6 +66,7 @@ namespace BE_QuanLiDiem.Repository.Implement
 
         public async Task<PhieuDiem> UpdatePhieuDiemAsync(UpdatePhieuDiemDTO updatePhieuDiemDTO, Guid MaPhieuDiem)
         {
+            var a = (float)(updatePhieuDiemDTO.DiemCC * 0.1 + updatePhieuDiemDTO.DiemTX * 0.3 + updatePhieuDiemDTO.DiemThi * 0.6);
             var exist = await dbContext.PhieuDiems.FirstOrDefaultAsync(x => x.MaPhieuDiem == MaPhieuDiem);
             if (exist == null) return null;
             exist.HocPhanId =updatePhieuDiemDTO.HocPhanId;
@@ -72,7 +74,7 @@ namespace BE_QuanLiDiem.Repository.Implement
             exist.DiemCC = updatePhieuDiemDTO.DiemCC;
             exist.DiemTX = updatePhieuDiemDTO.DiemTX;
             exist.DiemThi = updatePhieuDiemDTO.DiemThi;
-            //exist.DiemTBM = updatePhieuDiemDTO.DiemTBM;
+            exist.DiemTBM = a;
             //exist.DiemTK_HocKy = updatePhieuDiemDTO.DiemTK_HocKy;
             //exist.DiemTK_Nam = updatePhieuDiemDTO.DiemTK_Nam;
             exist.DiemThiLai = updatePhieuDiemDTO.DiemThiLai;
