@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qbpAWHRvuZoFZoOk+7TMoAvIdRblG83FxAPH4X7VRn8=",
+  "Hash": "tLfXiKibmNEsDAmVbXWZRgldAwEKxKm63CTbP2iCANQ=",
   "Source": "BE_QuanLiDiem",
   "BasePath": "_content/BE_QuanLiDiem",
   "Mode": "Default",
@@ -406,6 +406,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\ca-phe-che-phin-558938j18888.webp"
+    },
+    {
+      "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\DFD.png",
+      "SourceId": "BE_QuanLiDiem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\",
+      "BasePath": "_content/BE_QuanLiDiem",
+      "RelativePath": "Images/DFD.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\DFD.png"
     },
     {
       "Identity": "D:\\clonePr\\BE_QuanLiDiem3\\BE_QuanLiDiem\\wwwroot\\Images\\download.png",

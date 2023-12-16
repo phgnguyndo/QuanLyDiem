@@ -26,6 +26,14 @@ namespace BE_QuanLiDiem.Controllers
             var exist = await dtb.GetAllDTBAsync();
             return Ok(mapper.Map<List<DiemTrungBinhDTO>>(exist));
         }
+
+        [HttpGet]
+        [Route("{HocKy:int}")]
+        public async Task<IActionResult> GetDTBbyHocKy([FromRoute] int HocKy)
+        {
+            var exist = await dtb.GetDTBByHocKyAsync(HocKy);    
+            return Ok(mapper.Map<List<DiemTrungBinhDTO>>(exist));
+        }
         
         [HttpPut]
         public async Task<IActionResult> UpdateDTB(UpdateDTBdto updateDTBdto, [FromQuery] int hocky, [FromQuery] string MaHV)

@@ -40,6 +40,18 @@ namespace BE_QuanLiDiem.Repository.Implement
         {
             throw new NotImplementedException();
         }
+        
+        public async Task<List<DiemTrungBinh>> GetDTBByHocKyAsync(int hocKy)
+        {
+            var exist = await dbContext.DiemTrungBinhs
+            .Include(dt => dt.HocVien)
+            //.Include(dt => dt.PhieuDiem)
+            .Where(dt => dt.HocKy == hocKy)
+            .ToListAsync(); 
+            if (exist == null) { return null; }
+            return exist;
+
+        }
 
         public async Task<DiemTrungBinh> UpdateDTBAsync(UpdateDTBdto updateDTBdto, int hocKy, string MaHV)
         {

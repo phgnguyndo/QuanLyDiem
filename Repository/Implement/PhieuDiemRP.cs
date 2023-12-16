@@ -24,13 +24,10 @@ namespace BE_QuanLiDiem.Repository.Implement
                 DiemCC=addPhieuDiemDTO.DiemCC,
                 DiemTX=addPhieuDiemDTO.DiemTX,
                 DiemThi=addPhieuDiemDTO.DiemThi,
-                DiemTBM = a,
-                //DiemTK_HocKy=addPhieuDiemDTO.DiemTK_HocKy,
-                //DiemTK_Nam=addPhieuDiemDTO.DiemTK_Nam,
-                DiemThiLai =addPhieuDiemDTO.DiemThiLai,
-                LanThi=addPhieuDiemDTO.LanThi,
-                //DiemChu=addPhieuDiemDTO.DiemChu
+                DiemTBM = a
             };
+            var exist = await dbContext.PhieuDiems.Where(x => x.HocPhanId == newPhieuDiem.HocPhanId && x.HocVienId==newPhieuDiem.HocVienId).ToListAsync();
+            if (exist.Any()) { throw new InvalidOperationException("Phieu diem existed"); }
             dbContext.PhieuDiems.Add(newPhieuDiem);
             await dbContext.SaveChangesAsync();
             return newPhieuDiem;
@@ -75,11 +72,6 @@ namespace BE_QuanLiDiem.Repository.Implement
             exist.DiemTX = updatePhieuDiemDTO.DiemTX;
             exist.DiemThi = updatePhieuDiemDTO.DiemThi;
             exist.DiemTBM = a;
-            //exist.DiemTK_HocKy = updatePhieuDiemDTO.DiemTK_HocKy;
-            //exist.DiemTK_Nam = updatePhieuDiemDTO.DiemTK_Nam;
-            exist.DiemThiLai = updatePhieuDiemDTO.DiemThiLai;
-            exist.LanThi = updatePhieuDiemDTO.LanThi;
-            //exist.DiemChu = updatePhieuDiemDTO.DiemChu;
             await dbContext.SaveChangesAsync();
             return exist;
         }

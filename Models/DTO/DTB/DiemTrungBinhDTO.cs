@@ -1,4 +1,5 @@
 ﻿using BE_QuanLiDiem.Models.DTO.HocVien;
+using BE_QuanLiDiem.Models.DTO.PhieuDiem;
 using System.ComponentModel.DataAnnotations;
 
 namespace BE_QuanLiDiem.Models.DTO.DTB
@@ -11,5 +12,6 @@ namespace BE_QuanLiDiem.Models.DTO.DTB
         public float DTB { get; set; }
         public int TongTC { get; set; }
         public HocVienDTO HocVien { get; set; } 
+        public PhieuDiemDTO PhieuDiem { get; set;}
     }
 }

@@ -24,7 +24,7 @@ namespace BE_QuanLiDiem.Controllers
         }
         
         [HttpGet]
-        //[Authorize(Roles = UserRole.ADMIN)]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> GetAllDaiDoi()
         {
             var DaiDois=await daiDoiRP.GetAllDaiDoiAsync();
@@ -33,7 +33,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpGet]
         [Route("{MaDaiDoi:Guid}")]
-        //[Authorize(Roles = UserRole.ADMIN)]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> GetDaiDoiById([FromRoute] Guid MaDaiDoi)
         {
             var daiDoi= await daiDoiRP.GetDaiDoiByIdAsync(MaDaiDoi);
@@ -42,7 +42,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = UserRole.ADMIN)]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> CreateDaiDoi([FromForm] AUdaiDoiDTO aUdaiDoiDTO)
         {
             var newDD=await daiDoiRP.CreateDaiDoiAsync(aUdaiDoiDTO);
@@ -51,7 +51,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaDaiDoi:Guid}")]
-        //[Authorize(Roles = UserRole.ADMIN)]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> UpdateDaiDoi([FromForm] AUdaiDoiDTO aUdaiDoiDTO,[FromRoute] Guid MaDaiDoi)
         {
             var exist = await daiDoiRP.UpdateDaiDoiAsync(aUdaiDoiDTO, MaDaiDoi);
@@ -61,7 +61,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpDelete]
         [Route("{MaDaiDoi:Guid}")]
-        //[Authorize(Roles = UserRole.ADMIN)]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> DeleteDaiDoi([FromRoute] Guid MaDaiDoi)
         {
             var exist = await daiDoiRP.DeleteDaiDoiAsync(MaDaiDoi);
