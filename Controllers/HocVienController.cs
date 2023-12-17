@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BE_QuanLiDiem.Models.DTO.HocVien;
 using BE_QuanLiDiem.Repository.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class HocVienController : ControllerBase
     {
         private IHocVienRP hocVienRP;

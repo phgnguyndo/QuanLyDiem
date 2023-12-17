@@ -1,15 +1,19 @@
 ﻿using AutoMapper;
+using BE_QuanLiDiem.Constans;
 using BE_QuanLiDiem.Models.Domain;
 using BE_QuanLiDiem.Models.DTO.GiangVIen;
 using BE_QuanLiDiem.Repository.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles = UserRole.USER1)] 
     public class GiangVienController : ControllerBase
     {
         private IGiangVienRP giangVienRP;

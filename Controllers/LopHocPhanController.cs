@@ -8,6 +8,7 @@ namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class LopHocPhanController : ControllerBase
     {
         private ILopHocPhanRP lhpRP;

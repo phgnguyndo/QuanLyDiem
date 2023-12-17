@@ -8,6 +8,7 @@ namespace BE_QuanLiDiem.Models.DTO.LopHocPhan
     {
         public string MaLopHocPhan { get; set; }
         public int SoHV { get; set; }
+        public string DiaDiem { get; set; }
         public Guid HocPhanId { get; set; }
         public HocPhanDTO HocPhan { get; set; }
         //public GiangVienDTO GiangVien { get; set; }

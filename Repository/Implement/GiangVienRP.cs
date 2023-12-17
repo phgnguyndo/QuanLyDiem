@@ -62,6 +62,8 @@ namespace BE_QuanLiDiem.Repository.Implement
             if (exist == null) { return null; }
             exist.TenGV=updateGiangVienDTO.TenGV;
             exist.sdt=updateGiangVienDTO.sdt;
+            exist.CapBac=updateGiangVienDTO.CapBac;
+            exist.GioiTinh=updateGiangVienDTO.GioiTinh;
             exist.BoMonId = updateGiangVienDTO.BoMonId;
             await dbContext.SaveChangesAsync();
             return exist;

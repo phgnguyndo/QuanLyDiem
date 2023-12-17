@@ -1,15 +1,19 @@
 ﻿using AutoMapper;
+using BE_QuanLiDiem.Constans;
 using BE_QuanLiDiem.Data;
 using BE_QuanLiDiem.Models.DTO.Khoa;
 using BE_QuanLiDiem.Repository.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = UserRole.USER1)]
     public class KhoaController : ControllerBase
     {
         private readonly QL_DiemDbContext dbContext;
@@ -22,6 +26,7 @@ namespace BE_QuanLiDiem.Controllers
             this.mapper= mapper;
         }
         [HttpGet]
+        //[Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> GetAllKhoa()
         {
             var Khoas=await khoaRP.GetAllKhoaAsync();
@@ -31,6 +36,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpGet]
         [Route("{MaKhoa:Guid}")]
+        //[Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> GetKhoaById([FromRoute] Guid MaKhoa) 
         {
             var Khoa= await khoaRP.GetKhoaByIdAsync(MaKhoa);
