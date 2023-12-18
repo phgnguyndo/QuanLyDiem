@@ -11,7 +11,7 @@ namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = UserRole.USER1)]
+    //[Authorize(Roles = UserRole.USER1)]
     public class LopCnController : ControllerBase
     {
         private ILopCnRP lopCnRP;
@@ -24,6 +24,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = UserRole.ADMIN + "," + UserRole.USER1)]
         public async Task<IActionResult> GetAllLCN()
         {
             var LCNs=await lopCnRP.GetAllLcnAsync();

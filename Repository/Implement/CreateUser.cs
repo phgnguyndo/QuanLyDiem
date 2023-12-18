@@ -25,15 +25,13 @@ namespace BE_QuanLiDiem.Repository.Implement
             var user = new tbl_user
             {
                 Code=userDTO.Code,
-                //MaDaiDoi=userDTO.MaDaiDoi,
-                //MaHV=userDTO.MaHV,
                 MaDaiDoi=userDTO.MaDaiDoi,
                 MaHV=userDTO.MaHV,
                 Password= BCrypt.Net.BCrypt.HashPassword(userDTO.Password),
                 Role =userDTO.Role
             };
-            var exist=await context.tbl_user.FirstOrDefaultAsync(x=> x.Code==userDTO.Code);
-            if(exist!=null) { throw new InvalidOperationException("username existed."); }
+            var exist=await context.tbl_user.Where(x=> x.Code==user.Code && x.MaHV==user.MaHV).ToListAsync();
+            if(exist.Any()) { throw new InvalidOperationException("username existed."); }
             context.tbl_user.Add(user);
             await context.SaveChangesAsync();
             return user;

@@ -203,7 +203,6 @@ namespace BE_QuanLiDiem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AnhHV")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CapBac")
@@ -285,6 +284,9 @@ namespace BE_QuanLiDiem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("GiangVienId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("HocPhanId")
                         .HasColumnType("uniqueidentifier");
 
@@ -316,18 +318,12 @@ namespace BE_QuanLiDiem.Migrations
                     b.Property<float>("DiemThi")
                         .HasColumnType("real");
 
-                    b.Property<float>("DiemThiLai")
-                        .HasColumnType("real");
-
                     b.Property<Guid>("HocPhanId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("HocVienId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("LanThi")
-                        .HasColumnType("int");
 
                     b.HasKey("MaPhieuDiem");
 
@@ -336,6 +332,31 @@ namespace BE_QuanLiDiem.Migrations
                     b.HasIndex("HocVienId");
 
                     b.ToTable("PhieuDiems");
+                });
+
+            modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.TruyVet", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("tgDangNhap")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("tgDangXuat")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TruyVets");
                 });
 
             modelBuilder.Entity("BE_QuanLiDiem.Models.Domain.tbl_RefreshToken", b =>

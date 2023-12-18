@@ -8,7 +8,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
     {
         Task<List<HocVien>> GetAllHocVienAsync(int pageNumber=1, int pageSize=10);
         Task<List<HocVien>> GetHocVienByIdLopAsync(Guid MaLop);
-        Task<HocVien> GetHocVienByIdAsync(string MaHV);
+        Task<List<HocVien>> GetHocVienByIdAsync(string MaHV);
         Task<HocVien> CreateHocVienAsync(AddHocVienDTO addHocVienDTO);
         Task<HocVien> UpdateHocVienAsync(UpdateHocVienDTO updateHocVienDTO, string MaHV);
         Task<HocVien> DeleteHocVienAsync(string MaHV);

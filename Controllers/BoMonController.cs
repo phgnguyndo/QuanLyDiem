@@ -12,7 +12,7 @@ namespace BE_QuanLiDiem.Controllers
     
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = UserRole.USER1)]
+    
     public class BoMonController : ControllerBase
     {
         private readonly IBoMonRP boMonRP;
@@ -25,9 +25,9 @@ namespace BE_QuanLiDiem.Controllers
         //[AllowAnonymous]
         //[Authorize(Roles = UserRole.ADMIN)]
         [HttpGet]
-        public async Task<IActionResult> GetAllBoMon()
+        public async Task<IActionResult> GetAllBoMon([FromQuery] int pageNumber, [FromQuery] int pageSize)
         {
-            var exist=await boMonRP.GetAllBoMonAsync();
+            var exist=await boMonRP.GetAllBoMonAsync(pageNumber, pageSize);
             return Ok(mapper.Map<List<BoMonDTO>>(exist));
         }
         
@@ -50,6 +50,7 @@ namespace BE_QuanLiDiem.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> CreateBoMon(AddBoMonDTO addBoMonDTO)
         {
             var newBM= await boMonRP.CreateBoMonAsync(addBoMonDTO);
@@ -58,6 +59,7 @@ namespace BE_QuanLiDiem.Controllers
         
         [HttpPut]
         [Route("{MaBM:Guid}")]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> UpdateBoMon([FromRoute] Guid MaBM, UpdateBoMonDTO updateBoMonDTO)
         {
             var exist=await boMonRP.UpdateBoMonAsync(updateBoMonDTO, MaBM);
@@ -67,6 +69,7 @@ namespace BE_QuanLiDiem.Controllers
         
         [HttpDelete]
         [Route("{MaBM:Guid}")]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> DeleteBoMon([FromRoute] Guid MaBM)
         {
             var exist=await boMonRP.DeleteBoMonAsync(MaBM);

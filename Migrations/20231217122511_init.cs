@@ -71,6 +71,21 @@ namespace BE_QuanLiDiem.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TruyVets",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    tgDangNhap = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    tgDangXuat = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TruyVets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LopChuyenNganhs",
                 columns: table => new
                 {
@@ -117,7 +132,7 @@ namespace BE_QuanLiDiem.Migrations
                     MaHV = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     LopChuyenNganhId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TenHV = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    AnhHV = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnhHV = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgaySinh = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GioiTinh = table.Column<bool>(type: "bit", nullable: false),
                     QueQuan = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -207,6 +222,7 @@ namespace BE_QuanLiDiem.Migrations
                     MaLopHocPhan = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DiaDiem = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoHV = table.Column<int>(type: "int", nullable: false),
+                    GiangVienId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     HocPhanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -230,8 +246,6 @@ namespace BE_QuanLiDiem.Migrations
                     DiemCC = table.Column<float>(type: "real", nullable: false),
                     DiemTX = table.Column<float>(type: "real", nullable: false),
                     DiemThi = table.Column<float>(type: "real", nullable: false),
-                    DiemThiLai = table.Column<float>(type: "real", nullable: false),
-                    LanThi = table.Column<int>(type: "int", nullable: false),
                     DiemTBM = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
@@ -385,6 +399,9 @@ namespace BE_QuanLiDiem.Migrations
 
             migrationBuilder.DropTable(
                 name: "tbl_user");
+
+            migrationBuilder.DropTable(
+                name: "TruyVets");
 
             migrationBuilder.DropTable(
                 name: "GiangViens");

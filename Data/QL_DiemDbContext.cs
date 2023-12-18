@@ -20,6 +20,7 @@ namespace BE_QuanLiDiem.Data
         public DbSet<tbl_user> tbl_user { get; set; }
         public DbSet<HocTap> HocTaps { get; set; }
         public DbSet<DiemTrungBinh> DiemTrungBinhs { get; set; }
+        public DbSet<TruyVet> TruyVets { get; set; }
 
     }
 }

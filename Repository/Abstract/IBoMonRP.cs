@@ -6,7 +6,7 @@ namespace BE_QuanLiDiem.Repository.Abstract
 {
     public interface IBoMonRP
     {
-        Task<List<BoMon>> GetAllBoMonAsync();
+        Task<List<BoMon>> GetAllBoMonAsync(int pageNumber = 1, int pageSize = 10);
         Task<List<BoMon>> GetBoMonByIdKhoaAsync(Guid MaKhoa);
         Task<BoMon> GetBoMonByIdAsync(Guid MaBM);
         Task<BoMon> CreateBoMonAsync(AddBoMonDTO addBoMonDTO);

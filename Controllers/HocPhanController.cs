@@ -12,7 +12,7 @@ namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = UserRole.USER1)]
+    //[Authorize(Roles = UserRole.USER1)]
     public class HocPhanController : ControllerBase
     {
         private IHocPhanRP hocPhanRP;
@@ -25,9 +25,10 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllHocPhan()
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllHocPhan([FromQuery] int pageNumber, [FromQuery] int pageSize)
         {
-            var HocPhans= await hocPhanRP.GetAllHocPhanAsync();
+            var HocPhans= await hocPhanRP.GetAllHocPhanAsync(pageNumber, pageSize);
             return Ok(mapper.Map<List<HocPhanDTO>>(HocPhans));
         }
 
@@ -41,6 +42,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> CreateHocPhan(AddHocPhanDTO addHocPhanDTO)
         {
             var newHocPhan = await hocPhanRP.CreateHocPhanAsync(addHocPhanDTO);
@@ -49,6 +51,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaHocPhan:Guid}")]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> UpdateHocPhan([FromRoute] Guid MaHocPhan, UpdateHocPhanDTO updateHocPhanDTO)
         {
             var exist = await hocPhanRP.UpdateHocPhanAsync(updateHocPhanDTO, MaHocPhan);
@@ -58,6 +61,7 @@ namespace BE_QuanLiDiem.Controllers
         
         [HttpDelete]
         [Route("{MaHocPhan:Guid}")]
+        [Authorize(Roles = UserRole.ADMIN)]
         public async Task<IActionResult> DeleteHocPhan([FromRoute] Guid MaHocPhan)
         {
             var exist = await hocPhanRP.DeleteHocPhanAsync( MaHocPhan);

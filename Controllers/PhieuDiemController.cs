@@ -11,7 +11,7 @@ namespace BE_QuanLiDiem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = UserRole.USER1)]
+    //[Authorize(Roles = UserRole.USER1+ ","+ UserRole.ADMIN+","+ UserRole.USER2)]
     public class PhieuDiemController : ControllerBase
     {
         private IPhieuDiemRP phieuDiemRP;
@@ -49,6 +49,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> CreatePhieuDiem(AddPhieuDiemDTO addPhieuDiemDTO)
         {
             var newPhieuDiem=await phieuDiemRP.CreatePhieuDiemAsync(addPhieuDiemDTO);
@@ -57,6 +58,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaPhieuDiem:Guid}")]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> UpdatePhieuDiem(UpdatePhieuDiemDTO updatePhieuDiemDTO, [FromRoute] Guid MaPhieuDiem)
         {
             var exist = await phieuDiemRP.UpdatePhieuDiemAsync(updatePhieuDiemDTO, MaPhieuDiem);
@@ -66,6 +68,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpDelete]
         [Route("{MaPhieuDiem:Guid}")]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> DeletePhieuDiem([FromRoute] Guid MaPhieuDiem)
         {
             var exist = await phieuDiemRP.DeletePhieuDiemAsync(MaPhieuDiem);

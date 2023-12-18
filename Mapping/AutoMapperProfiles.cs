@@ -12,6 +12,7 @@ using BE_QuanLiDiem.Models.DTO.Khoa;
 using BE_QuanLiDiem.Models.DTO.LCN;
 using BE_QuanLiDiem.Models.DTO.LopHocPhan;
 using BE_QuanLiDiem.Models.DTO.PhieuDiem;
+using BE_QuanLiDiem.Models.DTO.TruyVet;
 using BE_QuanLiDiem.Models.DTO.User;
 
 namespace BE_QuanLiDiem.Mapping
@@ -66,12 +67,11 @@ namespace BE_QuanLiDiem.Mapping
             CreateMap<DiemTrungBinh, DiemTrungBinhDTO>().ReverseMap();
             CreateMap<DiemTrungBinh, AddDTBdto>().ReverseMap();
             CreateMap<DiemTrungBinh, UpdateDTBdto>().ReverseMap();
-            //CreateMap<ChuongTrinh, AUHocTapDTO>().ReverseMap();
 
 
-
-
-
+            CreateMap<TruyVet, TruyVetDTO>().ReverseMap();
+            CreateMap<TruyVet, AddTruyVetDTO>().ReverseMap();
+            CreateMap<TruyVet, UpdateTruyVetDTO>().ReverseMap();
 
         }
     }

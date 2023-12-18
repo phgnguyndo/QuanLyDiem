@@ -34,7 +34,7 @@ namespace BE_QuanLiDiem.Controllers
         {
             var hv=await hocVienRP.GetHocVienByIdAsync(MaHV);
             if(hv==null) return NotFound();
-            return Ok(mapper.Map<HocVienDTO>(hv));
+            return Ok(mapper.Map<List<HocVienDTO>>(hv));
         }
         
         [HttpGet]

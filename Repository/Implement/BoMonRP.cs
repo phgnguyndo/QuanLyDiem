@@ -37,9 +37,10 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
-        public async Task<List<BoMon>> GetAllBoMonAsync()
+        public async Task<List<BoMon>> GetAllBoMonAsync(int pageNumber, int pageSize)
         {
-            return await dbContext.BoMons.Include("Khoa").ToListAsync();
+            var skipResults = (pageNumber - 1) * pageSize;
+            return await dbContext.BoMons.Include("Khoa").Skip(skipResults).Take(pageSize).ToListAsync();
         }
 
         public async Task<BoMon> GetBoMonByIdAsync(Guid MaBM)

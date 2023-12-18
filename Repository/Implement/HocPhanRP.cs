@@ -40,9 +40,10 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
-        public async Task<List<HocPhan>> GetAllHocPhanAsync()
+        public async Task<List<HocPhan>> GetAllHocPhanAsync(int pageNumber, int pageSize)
         {
-            return await dbContext.HocPhans.Include("BoMon").ToListAsync();
+            var skipResults = (pageNumber - 1) * pageSize;
+            return await dbContext.HocPhans.Include("BoMon").Skip(skipResults).Take(pageSize).ToListAsync();
         }
 
         public async Task<HocPhan> GetHocPhanByIdAsync(Guid MaHocPhan)

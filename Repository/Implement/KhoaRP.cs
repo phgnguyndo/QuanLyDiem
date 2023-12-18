@@ -36,9 +36,10 @@ namespace BE_QuanLiDiem.Repository.Implement
             return exist;
         }
 
-        public async Task<List<Khoa>> GetAllKhoaAsync()
+        public async Task<List<Khoa>> GetAllKhoaAsync(int pageNumber, int pageSize)
         {
-            return await dbContext.Khoas.ToListAsync();
+            var skipResults = (pageNumber - 1) * pageSize;
+            return await dbContext.Khoas.Skip(skipResults).Take(pageSize).ToListAsync();
         }
 
         public async Task<Khoa> GetKhoaByIdAsync(Guid MaKhoa)
