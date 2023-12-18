@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BE_QuanLiDiem.Constans;
 using BE_QuanLiDiem.Models.DTO.HocVien;
 using BE_QuanLiDiem.Repository.Abstract;
 using Microsoft.AspNetCore.Authorization;
@@ -47,6 +48,7 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> CreateHocVien([FromForm] AddHocVienDTO addHocVienDTO)
         {
             var newHV=await hocVienRP.CreateHocVienAsync(addHocVienDTO);
@@ -55,6 +57,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpPut]
         [Route("{MaHV}")]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> UpdateHocVien([FromForm] UpdateHocVienDTO updateHocVienDTO, [FromRoute] string MaHV)
         {
             var exist = await hocVienRP.UpdateHocVienAsync(updateHocVienDTO, MaHV);
@@ -64,6 +67,7 @@ namespace BE_QuanLiDiem.Controllers
 
         [HttpDelete]
         [Route("{MaHV}")]
+        [Authorize(Roles = UserRole.USER1)]
         public async Task<IActionResult> DeleteHocVien([FromRoute] string MaHV)
         {
             var exist = await hocVienRP.DeleteHocVienAsync(MaHV);

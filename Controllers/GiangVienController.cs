@@ -26,9 +26,9 @@ namespace BE_QuanLiDiem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllGiangVien()
+        public async Task<IActionResult> GetAllGiangVien([FromQuery] int pageNumber, [FromQuery] int pageSize)
         {
-            var GiangViens=await giangVienRP.GetAllGiangVienAsync();
+            var GiangViens=await giangVienRP.GetAllGiangVienAsync(pageNumber, pageSize);
             return Ok(mapper.Map<List<GiangVienDTO>>(GiangViens));
         }
     
